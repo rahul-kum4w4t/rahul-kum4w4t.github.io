@@ -7,79 +7,89 @@
 body {
     margin: 0px;
     padding: 0px;
-    box-sizing: border-box;
-
-    /**Need to remove**/
-    height: 100vh;
-
-    font-size: 12px;
-    font-family: Fantasy, arial, monospace;
-
-    color: var(--color2)
 }
 
 .dashboard {
     height: 100vh;
     background-color: var(--color1);
-    position: relative;
-}
-
-/*.dashboard *{
     display:flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-}*/
-
-/*.dashboard_one{
-    height: 30vh;
-    background-color: var(--color2);
-    color: white !important;
 }
-
-.dashboard_two{
-    height: 70vh;
-}*/
 
 .dashboard_lambda {
-    font-size: min(50vh, 50vw);
-    line-height: 100vh;
+    position:absolute;
     box-sizing: border-box;
-    text-align: left;
-    padding: 0px;
-    margin : 0px;
-    color:  grey !important;
-    height: 100vh;
+    padding: 20px;
+    color:  grey;
     opacity: 0.1;
+    top : 0px;
+    left:0px;
 }
 
-.content-center {
-    display:flex;
-    justify-content: center;
-    align-items: center;
-    height: inherit;
-    flex-direction: column;
+.dashboard_lambda > i:first-child {
+    font-size: min(50vh, 50vw);
+}
+
+.dashboard_lambda > i:last-child {
+    font-size:min(30vw,30vh);
+    position:absolute;
+    top:calc(min(50vh, 50vw)*0.76);
+    left:calc(min(50vh, 50vw)*0.8);
 }
 
 .intro{
     font-size: 6vw;
+    font-family: Fantasy, arial, monospace;
 }
 
-.dashboard-text {
-    position: absolute;
-    display:flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: inherit;
-    width: 100vw;
-    left: 0px;
+.intro-about {
+    font-family:cursive,arial, monospace;;
+    font-size:2vw;
+    color:white;
+    width:fit-content;
+}
+
+.right-side-line {
+    position: fixed;
+    width: 0px;
+    height: 90vh;
+    margin-top: 5vh;
     top: 0px;
+    right: 6vw;
+    z-index: 1;
+    box-shadow: var(--color2) 0px 0px 2.5px 0.2px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
 }
 
-.dashboard hr {
-    width:25vw;
-    border-color:var(--color2);
+.right-side-line > a {
+    width: 40px;
+    height: 40px;
+    box-shadow: var(--color2) 0px 0px 12px 1px;
+    border-radius: 50%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: var(--color2);
+    font-size: 20px;
+    margin: 20px 0px 10px 0px;
 }
+
+.right-side-line > a:hover {
+    color: white;
+}
+
+
+
+
+
+/*********** Animation goes here *************/
 
 @-webkit-keyframes rotating-clockwise /* Safari and Chrome */ {
     from {
@@ -154,38 +164,3 @@ body {
     -o-animation: rotating-anticlockwise 20s linear infinite;
     animation: rotating-anticlockwise 20s linear infinite;
   }
-
-
-.right-side-line {
-    position: fixed;
-    width: 0px;
-    height: 90vh;
-    margin-top: 5vh;
-    top: 0px;
-    right: 6vw;
-    z-index: 1;
-    box-shadow: var(--color2) 0px 0px 2.5px 0.2px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-end;
-}
-
-.right-side-line > a {
-    width: 40px;
-    height: 40px;
-    box-shadow: var(--color2) 0px 0px 12px 1px;
-    border-radius: 50%;
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    color: var(--color2);
-    font-size: 20px;
-    margin: 20px 0px 10px 0px;
-}
-
-.right-side-line > a:hover {
-    color: white;
-}
