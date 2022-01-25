@@ -52,9 +52,8 @@ body {
 }
 
 .right-side-line {
-    position: fixed;
+    position: absolute;
     width: 0px;
-    height: 90vh;
     margin-top: 5vh;
     top: 0px;
     right: 6vw;
@@ -64,6 +63,10 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: flex-end;
+
+    animation: drop-line 1s;
+    animation-timing-function: ease;
+    animation-fill-mode: forwards;
 }
 
 .right-side-line > a {
@@ -84,6 +87,12 @@ body {
 .right-side-line > a:hover {
     color: white;
 }
+
+
+
+
+
+
 
 
 
@@ -164,3 +173,9 @@ body {
     -o-animation: rotating-anticlockwise 20s linear infinite;
     animation: rotating-anticlockwise 20s linear infinite;
   }
+
+
+@keyframes drop-line{
+    from { height:0vh;}
+    to { height:90vh;}
+}
