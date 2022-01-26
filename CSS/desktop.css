@@ -1,0 +1,265 @@
+.dashboard {
+    height: 100vh;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.dashboard_lambda {
+    position:absolute;
+    box-sizing: border-box;
+    padding: 20px;
+    color:  grey;
+    opacity: 0.1;
+    top : 0px;
+    left:0px;
+}
+
+.dashboard_lambda > i:first-child {
+    font-size: min(50vh, 50vw);
+}
+
+.dashboard_lambda > i:last-child {
+    font-size:min(30vw,30vh);
+    position:absolute;
+    top:calc(min(50vh, 50vw)*0.76);
+    left:calc(min(50vh, 50vw)*0.8);
+}
+
+.intro{
+    font-size: 6vw;
+    font-family: Fantasy, arial, monospace;
+}
+
+.intro-about {
+    font-family:cursive,arial, monospace;;
+    font-size:2vw;
+    color:white;
+    width:fit-content;
+}
+
+.right-side-line {
+    position: fixed;
+    width: 0px;
+    margin-top: 5vh;
+    top: 0px;
+    right: 3vw;
+    z-index: 1;
+    box-shadow: var(--color2) 0px 0px 2.5px 0.2px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+
+    animation: drop-line 1s;
+    animation-timing-function: ease;
+    animation-fill-mode: forwards;
+}
+
+.right-side-line > a {
+    width: 40px;
+    height: 40px;
+    box-shadow: var(--color2) 0px 0px 12px 1px;
+    border-radius: 50%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: var(--color2);
+    font-size: 20px;
+    margin: 20px 0px 10px 0px;
+}
+
+.right-side-line > a:hover {
+    color: white;
+}
+
+
+
+
+/*** Second page start here ****/
+
+.second-page {
+    height:100vh;
+    box-sizing:border-box;
+    border-top: solid 1px var(--color3);
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+    column-gap: 40px;
+    padding: 0px 40px 0px 40px;
+}
+
+.second-page > * {
+    
+    flex: 1 1 500px;
+}
+
+.about-me {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+    font-family: cursive, Helvetica, monospace, arial, sans-serif;
+    color: white;
+}
+
+.profile-pic {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-pic > img {
+    max-width: 250px;
+    border-radius: 50%;
+    padding: 10px;
+    box-shadow: var(--color2) 0px 0px 10px 1px;
+}
+
+.about-me > p:first-child {
+    font-weight: 800;
+    font-size: 30px;
+    color: var(--color2);
+}
+
+.about-me > p:not(:first-child) {
+    line-height: 2em;
+}
+
+
+
+
+
+@media only screen and (hover: none) and (pointer: coarse){
+    .second-page {
+        flex-direction: column;
+    }
+
+    .profile-pic {
+        justify-content: flex-end;
+    }
+    
+    .profile-pic > img {
+        max-width : 100%;
+        padding: 20px;
+        box-shadow: var(--color2) 0px 0px 30px 2px;
+    }
+
+    .about-me {
+        justify-content: flex-start;
+    }
+
+    .about-me > p:first-child {
+        text-align: center;
+        font-weight: 800;
+        font-size: 50px;
+    }
+
+    .about-me > p:not(:first-child) {
+        font-size: 20px;
+        text-align: center;
+    }
+}
+
+
+
+
+
+
+
+
+/*********** Animation goes here *************/
+
+@-webkit-keyframes rotating-clockwise /* Safari and Chrome */ {
+    from {
+        -webkit-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    to {
+        -webkit-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+@keyframes rotating-clockwise {
+    from {
+        -ms-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    to {
+        -ms-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -webkit-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+.rotation-clockwise {
+    -webkit-animation: rotating-clockwise 20s linear infinite;
+    -moz-animation: rotating-clockwise 20s linear infinite;
+    -ms-animation: rotating-clockwise 20s linear infinite;
+    -o-animation: rotating-clockwise 20s linear infinite;
+    animation: rotating-clockwise 20s linear infinite;
+  }
+
+  @-webkit-keyframes rotating-anticlockwise /* Safari and Chrome */ {
+    from {
+        -webkit-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+    to {
+        -webkit-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+}
+@keyframes rotating-anticlockwise {
+    from {
+        -ms-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -webkit-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+    to {
+        -ms-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+}
+
+.rotation-anticlockwise {
+    -webkit-animation: rotating-anticlockwise 20s linear infinite;
+    -moz-animation: rotating-anticlockwise 20s linear infinite;
+    -ms-animation: rotating-anticlockwise 20s linear infinite;
+    -o-animation: rotating-anticlockwise 20s linear infinite;
+    animation: rotating-anticlockwise 20s linear infinite;
+  }
+
+
+@keyframes drop-line{
+    from { height:0vh;}
+    to { height:90vh;}
+}
+
+@keyframes div-extender {
+    from{
+        width:0px;
+    }
+    to{
+        width:500px;
+    }
+}
