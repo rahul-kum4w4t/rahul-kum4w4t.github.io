@@ -129,6 +129,7 @@
 
 .about-me > p:not(:first-child) {
     line-height: 2em;
+    color: black;
 }
 
 
@@ -165,6 +166,7 @@
         text-align: center;
     }
 }
+
 
 
 
