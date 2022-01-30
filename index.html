@@ -8,7 +8,7 @@
     <link rel="stylesheet" href=".\CSS\menu.css" />
     <link rel="stylesheet" media="screen and (min-width: 601px)" href=".\CSS\desktop.css" />
     <link rel="stylesheet" media="screen and (max-aspect-ratio: 9/10)" href=".\CSS\mobile.css" />
-    
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 
     <script type="module">
@@ -20,39 +20,45 @@
 </head>
 
 <body>
+    <!-- Menu -->
     <div class="nav-menu closed">
-        <i id="openmenu" class="fa fa-bars" aria-hidden="true"></i>
-        <div id="nav">
-            <i id="closemenu" class="fa fa-times" aria-hidden="true"></i>
+        <div id="close">
+            <i class="fa fa-times" aria-hidden="true"></i>
+        </div>
+        <div class="pane_1">
+            <i id="openmenu" class="fa fa-bars" aria-hidden="true"></i>
+        </div>
+        <div class="pane_2">
+            <img src="images/profile_pic.jfif"></img>
+        </div>
+        <div class="pane_3">
+            <a href="javascript:void(0)"><i class="fa fa-user" aria-hidden="true"></i><br>About Me</a>
+            <a href="javascript:void(0)"><i class="fa fa-superpowers" aria-hidden="true"></i><br>Skills</a>
+            <a href="javascript:void(0)"><i class="fa fa-line-chart" aria-hidden="true"></i><br>Experience</a>
         </div>
     </div>
-    <div class="right-side-line">
-        <a href="https://www.linkedin.com/in/rk-m07xc/" target="_blank">
+
+
+    <div class="droping-line"></div>
+
+    <div class="contact" style="display:none;"><a href="https://www.linkedin.com/in/rk-m07xc/" target="_blank">
             <i class="fa fa-linkedin" aria-hidden="true"></i>
         </a>
         <a href="https://stackoverflow.com/users/11012355/rk-15" target="_blank">
             <i class="fa fa-stack-overflow" aria-hidden="true"></i>
         </a>
     </div>
-    
-    <div class="content-container">
-        <div class="dashboard">
-            <div class="dashboard_lambda">
-                <i class="fa fa-cog rotation-clockwise"></i>
-                <i class="fa fa-cog rotation-anticlockwise"></i>
-            </div>
-            <span class="intro" style="margin:0px;color:var(--color2);width:fit-content;"></span>
-            <span class="intro-about"></span>
-        </div>
+
+    <div class="rotating-cogs">
+        <i class="fa fa-cog rotation-clockwise"></i>
+        <i class="fa fa-cog rotation-anticlockwise"></i>
     </div>
-    <div class="second-page">
-        <div class="profile-pic"><img src="images/profile_pic.jfif"></img></div>
-        <div class="about-me">
-            <p>About Me</p>
-            <p>I'm a Professional Fullstack Software Developer based in Banglore. <br>I'm very passionate about
-                building Softwares which can help people around me and entire society.<br>I'm highly motivated and
-                enthusiastic always willing to learn.</p>
-        </div>
+
+    <div class="dashboard">
+        <span class="intro" style="margin:0px;color:var(--color2);width:fit-content;"></span>
+        <span class="intro-about"></span>
+        <span class="intro-summary-1"></span>
+        <span class="intro-summary-2"></span>
     </div>
 </body>
 

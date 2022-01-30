@@ -3,28 +3,32 @@
     display:flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
+    padding: 0px 40px 0px 40px; 
+    box-sizing: border-box;
+    overflow: hidden;
+    background-color: var(--color1);
 }
 
-.dashboard_lambda {
+.rotating-cogs {
     position:absolute;
+    right: 90px;
     box-sizing: border-box;
     padding: 20px;
     color:  grey;
     opacity: 0.1;
-    top : 0px;
-    left:0px;
+    top : 90px;
 }
 
-.dashboard_lambda > i:first-child {
+.rotating-cogs > i:first-child {
     font-size: min(50vh, 50vw);
 }
 
-.dashboard_lambda > i:last-child {
+.rotating-cogs > i:last-child {
     font-size:min(30vw,30vh);
     position:absolute;
     top:calc(min(50vh, 50vw)*0.76);
-    left:calc(min(50vh, 50vw)*0.8);
+    right:calc(min(50vh, 50vw)*0.8);
 }
 
 .intro{
@@ -39,25 +43,34 @@
     width:fit-content;
 }
 
-.right-side-line {
-    position: fixed;
+.intro-summary-1, .intro-summary-2{
+    font-size: 1em;
+    font-family: cursive, arial, monospace;
+    color: white;
+    line-height: 2.5em;
+}
+
+.droping-line {
+    position: absolute;
     width: 0px;
-    margin-top: 5vh;
-    top: 0px;
-    right: 3vw;
-    z-index: 1;
-    box-shadow: var(--color2) 0px 0px 2.5px 0.2px;
+    top: 15vh;
+    left: 1.5vw;
+    box-sizing: border-box;
+    box-shadow: var(--color2) 0px 0px 1px 0.2px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-end;
 
-    animation: drop-line 1s;
-    animation-timing-function: ease;
-    animation-fill-mode: forwards;
+    animation: drop-line 2s forwards ease-in-out;
 }
 
-.right-side-line > a {
+@keyframes drop-line{
+    from { height:0vh;}
+    to { height:70vh;}
+}
+
+.droping-line > a {
     width: 40px;
     height: 40px;
     box-shadow: var(--color2) 0px 0px 12px 1px;
@@ -70,66 +83,6 @@
     color: var(--color2);
     font-size: 20px;
     margin: 20px 0px 10px 0px;
-}
-
-.right-side-line > a:hover {
-    color: white;
-}
-
-
-
-
-/*** Second page start here ****/
-
-.second-page {
-    height:100vh;
-    box-sizing:border-box;
-    border-top: solid 1px var(--color3);
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    flex-direction: row;
-    column-gap: 40px;
-    padding: 0px 40px 0px 40px;
-}
-
-.second-page > * {
-    
-    flex: 1 1 500px;
-}
-
-.about-me {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: stretch;
-    font-family: cursive, Helvetica, monospace, arial, sans-serif;
-    color: white;
-}
-
-.profile-pic {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.profile-pic > img {
-    max-width: 250px;
-    border-radius: 50%;
-    padding: 10px;
-    box-shadow: var(--color2) 0px 0px 10px 1px;
-}
-
-.about-me > p:first-child {
-    font-weight: 800;
-    font-size: 30px;
-    color: var(--color2);
-}
-
-.about-me > p:not(:first-child) {
-    line-height: 2em;
-    color: black;
 }
 
 
@@ -250,12 +203,6 @@
     -o-animation: rotating-anticlockwise 20s linear infinite;
     animation: rotating-anticlockwise 20s linear infinite;
   }
-
-
-@keyframes drop-line{
-    from { height:0vh;}
-    to { height:90vh;}
-}
 
 @keyframes div-extender {
     from{

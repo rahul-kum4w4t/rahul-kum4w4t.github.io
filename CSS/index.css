@@ -11,5 +11,6 @@ body {
 
 .content-container {
     background-color: var(--color1);
-    width: 100vw;
+    box-sizing: border-box;
+    overflow: hidden;
 }

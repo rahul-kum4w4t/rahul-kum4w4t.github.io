@@ -1,59 +1,108 @@
+/***** Common properties ***/
 .nav-menu {
     position: fixed;
     top: 0px;
     left: 0px;
     width: 100%;
-    overflow:hidden;
-    padding: 10px;
+    padding: 10px 0px 5px 20px;
     box-sizing: border-box;
     min-height: 0px;
+    overflow:hidden;
+    z-index: 100;
+    transition: min-height 0.5s ease;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
+
+/***** for Closed menu properties ****/
 .nav-menu.closed {
-    background-color: transparent;
-    text-align: right;
-    color: white;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: stretch;
+    align-items: center;
 }
 
-.nav-menu.closed > i#openmenu {
-    margin: 10px 40px 0px 10px;
-    font-size: 20px;
-    animation: hamburger 1.5s ease-in-out infinite alternate;
-    border-radius: 50%;
-    padding: 7px 7px;
+.nav-menu.closed:hover {
+    background-color: rgba(100,100,100,0.2) ;
 }
 
-.nav-menu.closed > i#openmenu:hover {
-    -webkit-animation:0;
-    -moz-animation:0;
-    -o-animation:0;
-    animation:0;
-    color: var(--color2);
-    box-shadow: white 0px 0px 10px 0px;
-    cursor: pointer;
-}
-
-.nav-menu.closed > i#openmenu:active{
-    box-shadow: white 0px 0px 2px 0px;
-}
-
-.nav-menu.open > i#openmenu {
+.nav-menu.closed > div#close {
     display: none;
 }
 
-.nav-menu.closed > div#nav {
-    display: none;
-}
-
-.nav-menu.open > div#nav {
+.nav-menu.open > div#close {
     display: inline-block;
     color: white;
 }
 
-.nav-menu.open > div#nav > i#closemenu {
+.nav-menu > .pane_2, .pane_1 {
+    flex-grow: 1;
+}
+
+
+/*** pane_1 ***/
+.nav-menu.closed > .pane_1 {
+    flex-basis: auto;
+    color: white;
+    display: inline-block;
+    max-width: 40px;
+}
+
+.nav-menu.closed > .pane_1 > i#openmenu {
+    font-size: 20px;
+    animation: hamburger 1.5s ease-in-out infinite alternate;
+}
+
+.nav-menu.closed > .pane_1 > i#openmenu:hover {
+    -webkit-animation:0;
+    -moz-animation:0;
+    -o-animation:0;
+    animation:0;
+    cursor: pointer;
+}
+
+.nav-menu.closed > .pane_1 > i#openmenu:active{
+    color : grey;
+}
+
+
+/*** pane_2 ****/
+.nav-menu.closed > .pane_2 > img {
+    padding : 2px;
+    border-radius: 50%;
+    max-width : 40px;
+    max-height: 40px;
+    box-shadow: white 0px 0px 1px 0px;
+}
+
+/*** pane_3 ****/
+.nav-menu.closed > .pane_3 {
+    display: none;
+}
+
+
+
+
+
+
+
+/***** For open menu properties ****/
+.nav-menu.open > .pane_1 {
+    display: none;
+}
+
+.nav-menu.open > .pane_2 {
+    max-height: 200px;
+    padding: 25px 0px 25px 0px;
+    box-sizing: border-box;
+}
+
+
+.nav-menu.open > div#close > i {
     position: absolute;
-    right: 40px;
-    top: 40px;
+    right: 20px;
+    top: 20px;
     font-size: 25px;
     font-weight: lighter;
     cursor: pointer;
@@ -61,27 +110,82 @@
     opacity: 0.5;
 }
 
-.nav-menu.open > div#nav > i#closemenu:hover {
+.nav-menu.open > div#close > i:hover {
     color:red;
     opacity: 1;
 }
 
 .nav-menu.open {
     min-height: 100vh;
-    background-color: black;
-    opacity: 0.9;
+    background-color: rgba(0,0,0,0.9);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.nav-menu.open > .pane_2 > img {
+    max-width : 150px;
+    max-height: 150px;
+    border-radius: 50%;
+    transition: max-height 0.5s ease;
+}
+
+
+.nav-menu > .pane_3 {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    align-items: center;
-    transition: min-height 0.5s ease-in-out;
+    flex-wrap: wrap;
 }
 
+.nav-menu > .pane_3 > a {
+    flex-grow: 1;
+    height: fit-content;
+    box-shadow: white 0px 0px 1px 0px;
+    text-align: center;
+    padding: 20px;
+    text-decoration: none;
+    cursor: pointer;
+    color : white;
+    border-radius: 20px;
+    margin : 10px 20px 0px 0px;
+}
+
+.nav-menu > .pane_3 > a > i {
+    font-size: 60px;
+    margin-bottom: 20px;
+    min-width: 150px;
+}
+
+.nav-menu > .pane_3 > a:hover {
+    box-shadow: white 0px 0px 5px 0px;
+    background-color: black;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/**** Animation ****/
 @keyframes hamburger {
     0%{
-        transform: skewX(20deg);
+        transform: skewX(10deg);
     }
     100%{
-        transform: skewX(-20deg);
+        transform: skewX(-10deg);
     }
 }
