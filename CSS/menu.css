@@ -99,20 +99,19 @@
 }
 
 
-.nav-menu.open > div#close > i {
+.nav-menu.open > div#close > img {
     position: absolute;
-    right: 20px;
-    top: 20px;
-    font-size: 25px;
-    font-weight: lighter;
+    right: 40px;
+    top: 40px;
     cursor: pointer;
     border-radius: 50%;
-    opacity: 0.5;
+    width: 25px;
+    height: 25px;
+    transition: all 0.5s;
 }
 
-.nav-menu.open > div#close > i:hover {
-    color:red;
-    opacity: 1;
+.nav-menu.open > div#close > img:hover {
+    transform: rotate(-80deg);
 }
 
 .nav-menu.open {

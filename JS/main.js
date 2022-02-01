@@ -28,10 +28,40 @@ export default function onLoad() {
         target.classList.add("open");
     });
 
-    document.querySelector(".nav-menu > div#close > i").addEventListener("mouseup", event => {
+    document.querySelector(".nav-menu > div#close > img").addEventListener("mouseup", event => {
 
         const target = event.target.parentElement.parentElement;
         target.classList.remove("open");
         target.classList.add("closed");
     });
+
+    cardAnimator.allow = true;
+    cardAnimator.delay = 1500;
+    function cardAnimator(event){
+        if(cardAnimator.allow){
+            cardAnimator.allow = false;
+            const {target, currentTarget: {children}} = event;
+    
+            if(!target.classList.contains('remove')){
+                target.classList.add("remove");
+                setTimeout(() => {
+                    for(let elem of children){
+                        if(elem !== target){
+                            if(elem.classList.contains("restack")){
+                                elem.classList.remove("restack");
+                            }
+                            if(elem.classList.contains("remove")){
+                                elem.classList.remove("remove");
+                            }
+                        }
+                    }
+                    target.classList.add("restack");
+                },cardAnimator.delay);
+            }
+            setTimeout(()=>cardAnimator.allow = true,cardAnimator.delay + 10);
+        }
+    }
+    
+
+    document.querySelector(".skills-container").addEventListener("mousedown", cardAnimator);
 }
