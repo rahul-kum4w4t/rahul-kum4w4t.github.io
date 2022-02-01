@@ -1,16 +1,17 @@
 export default class TypeWriterEffect {
 
-    constructor(htmlElem, text, { ms = 100, cursorColor = "rgb(255,255,255)", wait = 3000 } = {}) {
+    constructor(htmlElem, {typetext = "", ms = 100, cursorColor = "rgb(255,255,255)", wait = 3000 } = {}) {
 
         if (htmlElem instanceof HTMLElement) {
             this.htmlElem = htmlElem;
+            this.text = this.htmlElem.dataset.typetext;
         } else {
             throw new Error("No HTMLElement provided");
         }
 
-        if (typeof (text) == "string" && text.length > 0) {
-            this.text = text;
-        } else {
+        if (typeof (typetext) == "string" && typetext.length > 0) {
+            this.text = typetext;
+        } else if(!(this.text && typeof(this.text) == "string" && this.text.length > 0)){
             throw new Error("No text provided");
         }
 
