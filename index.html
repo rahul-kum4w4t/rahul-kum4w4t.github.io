@@ -1,7 +1,7 @@
 <html>
 
 <head>
-    <title>This is Rahul</title>
+    <title>Know Rahul</title>
     <link rel="icon" href="images/logo.png" type="image/icon type">
 
     <link rel="stylesheet" href=".\CSS\index.css" />
@@ -25,7 +25,6 @@
     <div class="nav-menu closed">
         <div id="close">
             <img src="images/close.png" alt="this slowpoke moves" width="250" />
-            <!--<i class="fa fa-times" aria-hidden="true"></i>-->
         </div>
         <div class="pane_1">
             <i id="openmenu" class="fa fa-bars" aria-hidden="true"></i>
@@ -34,7 +33,7 @@
             <img src="images/profile_pic.jfif"></img>
         </div>
         <div class="pane_3">
-            <a href="javascript:void(0)"><i class="fa fa-user" aria-hidden="true"
+            <a id="about" href="javascript:void(0)"><i class="fa fa-user" aria-hidden="true"
                     style="color:var(--color2);"></i><br>About Me</a>
             <a id="skills" href="javascript:void(0)"><i class="fa fa-superpowers" aria-hidden="true"
                     style="color:var(--color2);"></i><br>Skills</a>
@@ -43,16 +42,7 @@
         </div>
     </div>
 
-
-    <div class="droping-line"></div>
-
-    <!--<div class="contact"><a href="https://www.linkedin.com/in/rk-m07xc/" target="_blank">
-            <i class="fa fa-linkedin" aria-hidden="true"></i>
-        </a>
-        <a href="https://stackoverflow.com/users/11012355/rk-15" target="_blank">
-            <i class="fa fa-stack-overflow" aria-hidden="true"></i>
-        </a>
-    </div>-->
+    
 
     <div class="rotating-cogs">
         <i class="fa fa-cog rotation-clockwise"></i>
@@ -60,6 +50,10 @@
     </div>
 
     <div class="dashboard">
+        <div class="drop-container">
+            <span class="text">About Me</span>
+            <span class="line"></span>
+        </div>
         <span class="intro" data-typetext="HELLO, I'm Rahul"></span>
         <span class="intro-about" data-typetext="Fullstack Software Developer"></span>
         <span class="intro-summary-1" data-typetext="I develop efficient Web based applications and Servers."></span>
@@ -68,6 +62,10 @@
     </div>
 
     <div id="card-container" class="card-container">
+        <div class="drop-container">
+            <span class="line"></span>
+            <span class="text">Skills</span>
+        </div>
         <div class="card-deck">
             <div class="card-yellow">
                 <div>
@@ -91,10 +89,6 @@
                 <div><img  src="images/python.png"></img></div>
                 <div>Lerning python to build and deploy robust and reliable ML and AI models.</div>
             </div>
-            <div class="card-green">
-                <div><img  src="images/node.png"></img></div>
-                <div>Use to develop robust, scalable and relaibale servers and microservices using NodeJS technology.</div>
-            </div>
             <div class="card-orange">
                 <div><img  src="images/sql.png"></img></div>
                 <div>Using MSSQL database to support large entrprise appications.</div>
@@ -103,8 +97,19 @@
                 <div><img  src="images/mongodb.png"></img></div>
                 <div>Using MongoDB NO-SQL database to support small application and microservices.</div>
             </div>
+            <div class="card-green restack">
+                <div><img  src="images/node.png"></img></div>
+                <div>Use to develop robust, scalable and relaibale servers and microservices using NodeJS technology.</div>
+            </div>
         </div>
     </div>
+    <div class="experience-container">
+        <div class="drop-container" data-direction="right">
+            <span class="text">Experience</span>
+            <span class="line"></span>
+        </div>
+    </div>
+    
 </body>
 
 </html>

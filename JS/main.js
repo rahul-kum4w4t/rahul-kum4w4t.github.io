@@ -40,6 +40,11 @@ export default function onLoad() {
         document.getElementById("card-container").scrollIntoView();
     });
 
+    document.querySelector(".nav-menu > .pane_3 > #about").addEventListener("mousedown" , () => {
+        document.querySelector(".nav-menu > div#close > img").dispatchEvent(new Event("mouseup"));
+        document.querySelector(".dashboard").scrollIntoView();
+    });
+
 
     for (let card of document.querySelectorAll(".card-container > div.card-deck > div")) {
         card.addEventListener("mousedown", drawCard);
@@ -48,6 +53,20 @@ export default function onLoad() {
     document.querySelector(".card-container > div.card-deck").addEventListener("mouseenter", spreadCards);
 
     document.querySelector(".card-container > div.card-deck").addEventListener("mouseleave", delayedStackUpdate);
+
+    window.addEventListener('resize',resizeDropBar);
+    resizeDropBar();
+}
+
+function resizeDropBar(){
+    const dropContainers = document.querySelectorAll(".drop-container");
+    for(const cont of dropContainers){
+        if(cont.dataset.direction == "right"){
+            cont.style.right = -2 * (cont.offsetWidth / 5) + "px";
+        }else{
+            cont.style.left = -2 * (cont.offsetWidth / 5) + "px";
+        }
+    }
 }
 
 let cardsOpen = false;
@@ -79,7 +98,6 @@ function spreadCards({ currentTarget: { children: cards } }) {
 }
 
 function delayedStackUpdate({ currentTarget: { children } }){
-
     setTimeout(stackCards, 100, children);
 }
 

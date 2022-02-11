@@ -37,7 +37,8 @@
     justify-content: stretch;
     align-items: stretch;
     font-family:  monospace, arial, sans-serif;
-    font-size: calc(3 * 1vmin);
+    font-size: 3vmin;
+    user-select:none;
 }
 
 .card-container > div.card-deck > div:hover {
@@ -59,7 +60,6 @@
         transform: rotateZ(-10deg) rotateX(30deg) rotateY(-10deg);
         opacity: 0.2;
         box-shadow: 1px 1px 2px 1px;
-        background-color: black
     }
 }
 
@@ -68,10 +68,9 @@
         top:10vh;
         left:-35vw;
         transform: rotateZ(-10deg) rotateX(30deg) rotateY(-10deg);
-        z-index: 5;
-        box-shadow: 2px 2px 5px 2px;
+        z-index: 1;
+        box-shadow: 0px 0px 10px 2px var(--color2);
         opacity: 0.2;
-        background-color: black;
     }
     to{
         z-index: 10;

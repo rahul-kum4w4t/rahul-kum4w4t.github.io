@@ -4,7 +4,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    padding: 0px 40px 0px 60px; 
+    padding: 0px 40px 0px 15vmin; 
     box-sizing: border-box;
     overflow: hidden;
     background-color: var(--color1);
@@ -52,19 +52,52 @@
     line-height: 2.5em;
 }
 
-.droping-line {
+
+@keyframes drop-line{
+    from { width:0%;}
+    to { width:100%;}
+}
+
+
+.drop-container {
     position: absolute;
-    width: 0px;
-    top: max(15vh, 40px);
-    left: 1.5vw;
+    top: 50vh;
+    background-color:transparent;
+    transform: rotate(-90deg);
+    width: 70vh;
+    color: var(--color2);
+
+    display: flex;
+    flex-direction: row;
+    justify-content: stretch;
+    align-items: center;
+    overflow: hidden;
     box-sizing: border-box;
-    box-shadow: var(--color2) 0px 0px 1px 0.2px;
+    margin: 0px;
+    font-family: arial,sans-serif;
+    font-size: 2.5vmin;
+}
+
+.drop-container > .line {
+    height:0px;
+    width: 0px;
+    box-shadow: 0px 0px 0.5px 0.3px var(--color2);
+    background-color: var(--color2);
+    margin: 0px 10px 0px 10px;
     animation: drop-line 2s forwards ease-in-out;
 }
 
-@keyframes drop-line{
-    from { height:0vh;}
-    to { height:70vh;}
+.drop-container > .text {
+    min-width: fit-content;
+}
+
+.experience-container {
+    max-width: 100%;
+    height: 100vh;
+    position:relative;
+    box-sizing: border-box;
+    overflow: hidden;
+    background-color: var(--color1);
 }
 
 

@@ -47,6 +47,9 @@
     color: white;
     display: inline-block;
     max-width: 40px;
+    min-height: 40px;
+    padding: 10px;
+    box-sizing: border-box;
 }
 
 .nav-menu.closed > .pane_1 > i#openmenu {
@@ -71,8 +74,8 @@
 .nav-menu.closed > .pane_2 > img {
     padding : 2px;
     border-radius: 50%;
-    max-width : 40px;
-    max-height: 40px;
+    max-width : 0px;
+    max-height: 0px;
     box-shadow: white 0px 0px 1px 0px;
 }
 
