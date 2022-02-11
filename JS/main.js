@@ -35,14 +35,22 @@ export default function onLoad() {
         target.classList.add("closed");
     });
 
+    document.querySelector(".nav-menu > .pane_3 > #skills").addEventListener("mousedown" , () => {
+        document.querySelector(".nav-menu > div#close > img").dispatchEvent(new Event("mouseup"));
+        document.getElementById("card-container").scrollIntoView();
+    });
 
-    document.querySelector(".skills-container > div").addEventListener("mousedown", drawCard);
 
-    document.querySelector(".skills-container > div").addEventListener("mouseenter", spreadCards);
+    for (let card of document.querySelectorAll(".card-container > div.card-deck > div")) {
+        card.addEventListener("mousedown", drawCard);
+    }
 
-    document.querySelector(".skills-container > div").addEventListener("mouseleave", stackCards);
+    document.querySelector(".card-container > div.card-deck").addEventListener("mouseenter", spreadCards);
+
+    document.querySelector(".card-container > div.card-deck").addEventListener("mouseleave", delayedStackUpdate);
 }
 
+let cardsOpen = false;
 function spreadCards({ currentTarget: { children: cards } }) {
 
     const margin = 40;
@@ -55,7 +63,7 @@ function spreadCards({ currentTarget: { children: cards } }) {
     if (remainingWidthForEachChild >= minMargin) {
         let topOne = null;
         for (let elem of cards) {
-            if (!elem.classList.contains("remove") && !elem.classList.contains("restack")) {
+            if (!elem.classList.contains("restack")) {
                 elem.style.left = `${remainingWidthForEachChild * count++}px`;
                 elem.style.transform = "rotateZ(-10deg) rotateX(30deg) rotateY(-10deg)";
             } else {
@@ -67,44 +75,47 @@ function spreadCards({ currentTarget: { children: cards } }) {
             topOne.style.transform = "rotateZ(-10deg) rotateX(30deg) rotateY(-10deg)";
         }
     }
+    cardsOpen = true;
 }
 
-function stackCards(event) {
-    for (let elem of event.currentTarget.children) {
+function delayedStackUpdate({ currentTarget: { children } }){
+
+    setTimeout(stackCards, 100, children);
+}
+
+function stackCards(cards) {
+    for (let elem of cards) {
         elem.style.left = null;
         elem.style.transform = null;
     }
+    cardsOpen = false;
 }
 
 drawCard.allow = true;
-drawCard.delay = 1500;
+const DELAY = 1500;
 function drawCard(event) {
 
     if (drawCard.allow) {
-
         drawCard.allow = false;
+        const { currentTarget: clickedCard, currentTarget: { parentElement: { children: cards } } } = event;
 
-        const { target, currentTarget: { children } } = event;
-
-        if (!target.classList.contains('restack')) {
-
-            target.classList.add("remove");
-
+        if (!clickedCard.classList.contains('restack')) {
+            clickedCard.classList.add("remove");
             setTimeout(() => {
 
-                for (let elem of children) {
-                    if (elem !== target && elem.classList.contains("restack")) {
-                        elem.classList.remove("restack");
-                        elem.classList.remove("remove");
+                for (let card of cards) {
+                    if (card !== clickedCard && card.classList.contains("restack")) {
+                        card.classList.remove("restack");
+                        card.classList.remove("remove");
                     }
                 }
-
-                target.classList.add("restack");
+                clickedCard.classList.add("restack");
                 drawCard.allow = true;
-                spreadCards({ currentTarget: { children } });
-
-            }, drawCard.delay);
+                spreadCards( { currentTarget: { children: cards } } );
+            }, DELAY);
         } else {
+            if(cardsOpen) stackCards(cards);
+            else spreadCards({ currentTarget: { children: cards } });
             drawCard.allow = true;
         }
     }

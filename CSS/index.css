@@ -4,6 +4,10 @@
     --color3: rgba(50, 50, 50);
 }
 
+html{
+    scroll-behavior: smooth;
+}
+
 body {
     margin: 0px;
     padding: 0px;
