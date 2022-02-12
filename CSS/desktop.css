@@ -91,6 +91,10 @@
     min-width: fit-content;
 }
 
+
+
+
+
 .experience-container {
     max-width: 100%;
     height: 100vh;
@@ -98,13 +102,118 @@
     box-sizing: border-box;
     overflow: hidden;
     background-color: var(--color1);
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    min-width:700px;
+    min-height:600px;
+}
+
+.experience {
+    width: 67vw;
+    height: 67vh;
+
+    display: flex;
+    flex-direction: row;
+    box-sizing: border-box;
+
+    min-width:600px;
+    min-height:300px;
+}
+
+.experience > div:first-child {
+    background-color: black;
+    width: 3px;
+    background-color: rgba(231,76,60,0.2);
+    border-radius:2.5px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+    box-sizing: border-box;
+}
+
+.experience > div:first-child > span {
+    flex-grow: 1;
+    border-radius:2.5px;
+    transition: all 1s ease-in-out;
+}
+
+.experience > div:nth-child(2) {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+    box-sizing: border-box; 
+}
+
+.experience > div:nth-child(2) > span {
+    flex-grow: 1;
+
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: flex-end;
+    font-family: arial, monospace;
+    font-size: max(10px, 2.3vmin);
+    color: white;   
+    box-sizing: border-box;
+    max-height: 33.33%;
+    padding: 0px 15px 0px 15px;
+
+    cursor: pointer;
+    transition: border-right 1s ease-in-out;
+}
+
+.experience > div:nth-child(2) > span:hover {
+    background-color: rgba(231,76,60,0.1);
+}
+
+.experience > div:nth-child(2) > span.selected {
+    color: var(--color2);
+    border-right: 1px solid rgba(231,76,60,0.3);
+    font-weight: bold;
+}
+
+
+.experience > div:last-child {
+    flex: 1 1 75%;
+    box-sizing: border-box;
+    color: white;
+    padding: 10px;
+
+    display:flex;
+    flex-direction: column;
+}
+
+.experience > div:last-child > span.selected {
+    height: 100%;
+    border-right: 1px solid rgba(231,76,60,0.1);
+}
+
+.experience > div:last-child > span {
+    flex-grow:1;
+    height: 0px;
+    display:flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    overflow: hidden;
+    line-height: max(20px, 5vmin);
+    padding-right: 10px;
+    transition: all 1s ease-in-out; 
+    font-size: max(10px, 2.3vmin);
+    font-family: arial, monospace;
 }
 
 
 
 
-
-
+.experience > div:first-child > span.selected {
+    background-color: rgb(231,76,60);
+}
 
 
 

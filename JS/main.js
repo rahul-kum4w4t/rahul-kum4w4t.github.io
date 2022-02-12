@@ -35,12 +35,12 @@ export default function onLoad() {
         target.classList.add("closed");
     });
 
-    document.querySelector(".nav-menu > .pane_3 > #skills").addEventListener("mousedown" , () => {
+    document.querySelector(".nav-menu > .pane_3 > #skills").addEventListener("mousedown", () => {
         document.querySelector(".nav-menu > div#close > img").dispatchEvent(new Event("mouseup"));
         document.getElementById("card-container").scrollIntoView();
     });
 
-    document.querySelector(".nav-menu > .pane_3 > #about").addEventListener("mousedown" , () => {
+    document.querySelector(".nav-menu > .pane_3 > #about").addEventListener("mousedown", () => {
         document.querySelector(".nav-menu > div#close > img").dispatchEvent(new Event("mouseup"));
         document.querySelector(".dashboard").scrollIntoView();
     });
@@ -54,16 +54,46 @@ export default function onLoad() {
 
     document.querySelector(".card-container > div.card-deck").addEventListener("mouseleave", delayedStackUpdate);
 
-    window.addEventListener('resize',resizeDropBar);
+    window.addEventListener('resize', resizeDropBar);
     resizeDropBar();
+
+    for (let tab of document.querySelectorAll(".experience > div:nth-child(2) > span")) {
+        tab.addEventListener("mousedown", event => {
+            console.log("Inside");
+            const tab = event.currentTarget;
+            const index = parseInt(tab.dataset.index);
+            console.log(index);
+    
+            const parent = tab.parentElement;
+            const grandParent = tab.parentElement.parentElement;
+    
+            const scroller = grandParent.children[0].children;
+            const tabs = parent.children;
+            const summary = grandParent.children[2].children;
+    
+            for (let i = 0; i < tabs.length; i++) {
+                if (i != index) {
+                    if (tabs[i].classList.contains("selected")) {
+                        tabs[i].classList.remove("selected");
+                        summary[i].classList.remove("selected");
+                        scroller[i].classList.remove("selected");
+                    }
+                } else {
+                    tabs[i].classList.add("selected");
+                    summary[i].classList.add("selected");
+                    scroller[i].classList.add("selected");
+                }
+            }
+        });
+    }
 }
 
-function resizeDropBar(){
+function resizeDropBar() {
     const dropContainers = document.querySelectorAll(".drop-container");
-    for(const cont of dropContainers){
-        if(cont.dataset.direction == "right"){
+    for (const cont of dropContainers) {
+        if (cont.dataset.direction == "right") {
             cont.style.right = -2 * (cont.offsetWidth / 5) + "px";
-        }else{
+        } else {
             cont.style.left = -2 * (cont.offsetWidth / 5) + "px";
         }
     }
@@ -97,7 +127,7 @@ function spreadCards({ currentTarget: { children: cards } }) {
     cardsOpen = true;
 }
 
-function delayedStackUpdate({ currentTarget: { children } }){
+function delayedStackUpdate({ currentTarget: { children } }) {
     setTimeout(stackCards, 100, children);
 }
 
@@ -129,10 +159,10 @@ function drawCard(event) {
                 }
                 clickedCard.classList.add("restack");
                 drawCard.allow = true;
-                spreadCards( { currentTarget: { children: cards } } );
+                spreadCards({ currentTarget: { children: cards } });
             }, DELAY);
         } else {
-            if(cardsOpen) stackCards(cards);
+            if (cardsOpen) stackCards(cards);
             else spreadCards({ currentTarget: { children: cards } });
             drawCard.allow = true;
         }
