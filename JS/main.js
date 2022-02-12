@@ -19,6 +19,8 @@ export default function onLoad() {
             document.getElementsByClassName("intro-summary-2")[0],
             { cursorColor: "white", ms: 50 }
         ).startTyping();
+    }).then(() => {
+        document.querySelector(".contact-me").style.opacity = 1;
     });
 
     document.querySelector(".nav-menu > .pane_1 > i").addEventListener("mouseup", event => {
