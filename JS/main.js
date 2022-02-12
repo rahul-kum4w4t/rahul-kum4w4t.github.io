@@ -37,12 +37,18 @@ export default function onLoad() {
 
     document.querySelector(".nav-menu > .pane_3 > #skills").addEventListener("mousedown", () => {
         document.querySelector(".nav-menu > div#close > img").dispatchEvent(new Event("mouseup"));
-        document.getElementById("card-container").scrollIntoView();
+        document.querySelector(".card-container").scrollIntoView();
+        
     });
 
     document.querySelector(".nav-menu > .pane_3 > #about").addEventListener("mousedown", () => {
         document.querySelector(".nav-menu > div#close > img").dispatchEvent(new Event("mouseup"));
         document.querySelector(".dashboard").scrollIntoView();
+    });
+
+    document.querySelector(".nav-menu > .pane_3 > #experience").addEventListener("mousedown", () => {
+        document.querySelector(".nav-menu > div#close > img").dispatchEvent(new Event("mouseup"));
+        document.querySelector(".experience-container").scrollIntoView();
     });
 
 
