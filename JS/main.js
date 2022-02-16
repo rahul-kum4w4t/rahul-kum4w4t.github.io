@@ -17,17 +17,19 @@ export default function onLoad() {
     }).then(() => {
         return new TypeWriterEffect(
             document.getElementsByClassName("intro-summary-2")[0],
-            { cursorColor: "white", ms: 50 }
+            { cursorColor: "white", ms: 50, wait: 0  }
         ).startTyping();
     }).then(() => {
         document.querySelector(".contact-me").style.opacity = 1;
     });
+
 
     document.querySelector(".side-menu").addEventListener("mousedown", ({ target, currentTarget }) => {
 
         const [up, { children: items }, down] = currentTarget.children;
 
         if (target !== currentTarget) {
+            
             if (target === up && !up.classList.contains("bound")) {
                 for (let i = 1; i < items.length; i++) {
                     if (items[i].classList.contains("selected")) {
@@ -38,6 +40,7 @@ export default function onLoad() {
                 }
 
             } else if (down === target && !down.classList.contains("bound")) {
+            
                 for (let i = items.length - 2; i >= 0; i--) {
                     if (items[i].classList.contains("selected")) {
                         items[i].classList.remove("selected");
@@ -50,6 +53,7 @@ export default function onLoad() {
                 target = target.classList.contains("side-menu-item") ? target : target.parentElement.classList.contains("side-menu-item") ? target.parentElement : null;
 
                 if (target && !target.classList.contains("selected")) {
+                    
                     for (let item of items) {
                         if (item.classList.contains("selected")) {
                             item.classList.remove("selected");
@@ -92,8 +96,24 @@ export default function onLoad() {
 
 
     document.querySelector(".contact-me").addEventListener("mousedown", e => {
-        document.querySelector(".contact-info").scrollIntoView();
+        document.querySelector(".side-menu-item[data-navigate=contact-info]").dispatchEvent(new Event("mousedown",{bubbles: true}));
     });
+
+    /*let lastScrollPos = 0;
+    document.body.onscroll = event => {
+        if(scrollAllowed){
+            console.log(scrollAllowed);
+            scrollAllowed = false;
+            let st = window.pageYOffset || document.documentElement.scrollTop;
+            if(st > lastScrollPos){
+                document.querySelector(".side-menu-down").dispatchEvent(new Event("mousedown",{bubbles: true}));
+            }else{
+                document.querySelector(".side-menu-up").dispatchEvent(new Event("mousedown",{bubbles: true}));
+            }
+            lastScrollPos =  st;
+        }
+    }*/
+
     /*document.querySelector(".nav-menu > .pane_1 > i").addEventListener("mouseup", event => {
 
         const target = event.target.parentElement.parentElement;
@@ -138,7 +158,6 @@ export default function onLoad() {
 
     for (let tab of document.querySelectorAll(".experience > div:nth-child(2) > span")) {
         tab.addEventListener("mousedown", event => {
-            console.log("Inside");
             const tab = event.currentTarget;
             const index = parseInt(tab.dataset.index);
             console.log(index);
