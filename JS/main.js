@@ -23,7 +23,78 @@ export default function onLoad() {
         document.querySelector(".contact-me").style.opacity = 1;
     });
 
-    document.querySelector(".nav-menu > .pane_1 > i").addEventListener("mouseup", event => {
+    document.querySelector(".side-menu").addEventListener("mousedown", ({ target, currentTarget }) => {
+
+        const [up, { children: items }, down] = currentTarget.children;
+
+        if (target !== currentTarget) {
+            if (target === up && !up.classList.contains("bound")) {
+                for (let i = 1; i < items.length; i++) {
+                    if (items[i].classList.contains("selected")) {
+                        items[i].classList.remove("selected");
+                        navigateAndClear(items[i - 1], items, up, down);
+                        break;
+                    }
+                }
+
+            } else if (down === target && !down.classList.contains("bound")) {
+                for (let i = items.length - 2; i >= 0; i--) {
+                    if (items[i].classList.contains("selected")) {
+                        items[i].classList.remove("selected");
+                        navigateAndClear(items[i + 1], items, up, down);
+                        break;
+                    }
+                }
+            } else if (target !== up && target !== down) {
+
+                target = target.classList.contains("side-menu-item") ? target : target.parentElement.classList.contains("side-menu-item") ? target.parentElement : null;
+
+                if (target && !target.classList.contains("selected")) {
+                    for (let item of items) {
+                        if (item.classList.contains("selected")) {
+                            item.classList.remove("selected");
+                            navigateAndClear(target, items, up, down);
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+    });
+
+    function navigateAndClear(elem, items, up, down) {
+        
+        elem.classList.add("selected");
+        document.querySelector(`.${elem.dataset.navigate}`).scrollIntoView();
+        
+        if (elem == items[0]) {
+            up.classList.add("bound");
+            if (down.classList.contains("bound")) {
+                down.classList.remove("bound");
+            }
+        } else if (elem == items[items.length - 1]) {
+            down.classList.add("bound");
+            if (up.classList.contains("bound")) {
+                up.classList.remove("bound");
+            }
+        } else {
+            if (up.classList.contains("bound")) {
+                up.classList.remove("bound");
+            }
+            if (down.classList.contains("bound")) {
+                down.classList.remove("bound");
+            }
+        }
+    }
+
+
+    window.scrollTo(0, 0);
+
+
+    document.querySelector(".contact-me").addEventListener("mousedown", e => {
+        document.querySelector(".contact-info").scrollIntoView();
+    });
+    /*document.querySelector(".nav-menu > .pane_1 > i").addEventListener("mouseup", event => {
 
         const target = event.target.parentElement.parentElement;
         target.classList.remove("closed");
@@ -51,7 +122,7 @@ export default function onLoad() {
     document.querySelector(".nav-menu > .pane_3 > #experience").addEventListener("mousedown", () => {
         document.querySelector(".nav-menu > div#close > img").dispatchEvent(new Event("mouseup"));
         document.querySelector(".experience-container").scrollIntoView();
-    });
+    });*/
 
 
     for (let card of document.querySelectorAll(".card-container > div.card-deck > div")) {
@@ -71,14 +142,14 @@ export default function onLoad() {
             const tab = event.currentTarget;
             const index = parseInt(tab.dataset.index);
             console.log(index);
-    
+
             const parent = tab.parentElement;
             const grandParent = tab.parentElement.parentElement;
-    
+
             const scroller = grandParent.children[0].children;
             const tabs = parent.children;
             const summary = grandParent.children[2].children;
-    
+
             for (let i = 0; i < tabs.length; i++) {
                 if (i != index) {
                     if (tabs[i].classList.contains("selected")) {

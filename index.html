@@ -5,7 +5,9 @@
     <link rel="icon" href="images/logo.png" type="image/icon type">
 
     <link rel="stylesheet" href=".\CSS\index.css" />
-    <link rel="stylesheet" href=".\CSS\menu.css" />
+    <!--<link rel="stylesheet" href=".\CSS\menu.css" />-->
+    <link rel="stylesheet" href=".\CSS\side-menu.css" />
+
     <link rel="stylesheet" href=".\CSS\card.css" />
     <link rel="stylesheet" media="screen and (min-width: 601px)" href=".\CSS\desktop.css" />
     <link rel="stylesheet" media="screen and (max-aspect-ratio: 9/10)" href=".\CSS\mobile.css" />
@@ -22,7 +24,7 @@
 
 <body>
     <!-- Menu -->
-    <div class="nav-menu closed">
+    <!--<div class="nav-menu closed">
         <div id="close">
             <img src="images/close.png" alt="this slowpoke moves" width="250" />
         </div>
@@ -40,9 +42,30 @@
             <a id="experience" href="javascript:void(0)"><i class="fa fa-line-chart" aria-hidden="true"
                     style="color:var(--color2);"></i><br>Experience</a>
         </div>
+    </div>-->
+
+    <div class="side-menu">
+        <span class="fa fa-angle-up side-menu-up bound" aria-hidden="true"></span>
+        <span class="side-menu-content">
+            <span class="side-menu-item selected" data-navigate="dashboard">
+                <span>About Me</span>
+                <span class="fa fa-user"></span>
+            </span>
+            <span class="side-menu-item" data-navigate="card-container">
+                <span>Skills</span>
+                <span class="fa fa-wrench"></span>
+            </span>
+            <span class="side-menu-item" data-navigate="experience-container">
+                <span>Experience</span>
+                <span class="fa fa-line-chart"></span>
+            </span>
+            <span class="side-menu-item" data-navigate="contact-info">
+                <span>Contact Me</span>
+                <span class="fa fa-phone"></span>
+            </span>
+        </span>
+        <span class="fa fa-angle-down side-menu-up" aria-hidden="true"></span>
     </div>
-
-
 
     <div class="rotating-cogs">
         <i class="fa fa-cog rotation-clockwise"></i>

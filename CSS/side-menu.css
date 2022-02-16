@@ -1,0 +1,156 @@
+.side-menu {
+    position: fixed;
+    z-index: 100;
+
+    bottom: 20px;
+    right: 20px;
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    font-size: max(5vmin, 12px) !important;
+    color: white;
+
+    -ms-user-select: none;
+   user-select: none;
+
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.side-menu > span {
+    border-radius: max(7vmin, 20px);
+    margin: 10px 0px 0px 0px;
+    flex: 1 1 auto;
+    line-height: max(7vmin, 20px) !important;
+    text-align: center;
+    min-width: max(7vmin, 20px);
+    min-height: max(7vmin, 20px);
+}
+
+.side-menu > .side-menu-up, .side-menu-down{
+    box-shadow: 0px 0px 0.5px 0.5px white;
+    background-color: rgba(255,255,255,0.1);
+}
+
+.side-menu > .side-menu-up.bound, .side-menu-down.bound{
+    visibility: hidden;
+}
+
+.side-menu > .side-menu-up:hover, .side-menu-down:hover {
+    background-color: var(--color2);
+    color: white;
+    box-shadow: 0px 0px 0px 0px;
+    cursor: pointer;
+    box-shadow: 0px 0px 5px 2px grey !important;
+}
+
+.side-menu > span.side-menu-content {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    animation: rotate 5s linear infinite forwards;
+}
+
+.side-menu > span.side-menu-content > span:nth-child(n+5){
+    position :absolute;
+    visibility: hidden;
+}
+
+.side-menu:hover > span.side-menu-content > span:nth-child(n+5){
+    position :static;
+    visibility: visible;
+}
+
+.side-menu > span.side-menu-content > span {
+    flex: 1 1 40%;
+    margin: 1px;
+    border-radius: 50%;
+    background-color: rgb(200,200,200);
+    position: relative;
+}
+
+.side-menu > span.side-menu-content > span > span:first-child {
+    display: none;
+}
+
+.side-menu > span.side-menu-content > span:hover > span:first-child {
+    display: block;
+    color: var(--color2);
+    position: absolute;
+    font-size: max(2vmin, 5px) !important;
+    font-weight: bold;
+    right: max(7vmin, 20px);
+    background-color: white;
+    border-radius: max(7vmin, 20px);
+    padding: 0px 10px;
+    white-space: nowrap;
+    line-height: max(7vmin, 20px) !important;
+    margin-right: 10px;
+}
+
+.side-menu > span.side-menu-content > span > span:last-child {
+    min-width: max(1vmin, 2px);
+    min-height: max(1vmin, 2px);
+    line-height: 0px;
+    font-size: 0px;
+}
+
+.side-menu:hover > span.side-menu-content > span > span:last-child {
+    line-height: max(7vmin, 20px) !important;
+    font-size: max(3vmin, 11.5px) !important;
+    min-width: max(7vmin, 20px);
+    min-height: max(7vmin, 20px);
+    transition: min-width 1s ease-in-out,
+    min-height 1s ease-in-out,
+    font-size 1s ease-in-out,
+    line-height 1s ease-in-out;
+}
+
+.side-menu:hover > span.side-menu-content {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    animation: none !important;
+}
+
+.side-menu:hover > span.side-menu-content > span {
+    flex: 1 1 auto;
+    margin: 5px 0px;
+    background-color: transparent !important;
+}
+
+.side-menu:hover > span.side-menu-content > span:not(.side-menu-item) {
+    display: none;
+}
+
+.side-menu:hover > span.side-menu-content > span.selected {
+    background-color: silver !important;
+    cursor: not-allowed;
+    color: var(--color2);
+}
+
+.side-menu:hover > span.side-menu-content > span > span:last-child {
+    box-shadow: 0px 0px 0.5px 0.5px white;
+    border-radius: 50%;
+}
+
+.side-menu > span.side-menu-content > span:not(.selected):hover > span:last-child{
+    box-shadow: 0px 0px 5px 2px grey !important;
+    cursor: pointer;
+    background-color: var(--color2) !important;
+    color: white;
+}
+
+.side-menu > span.side-menu-content > span:nth-child(1), .side-menu > span.side-menu-content > span:nth-child(4) {
+    background-color: var(--color2);
+}
+
+@keyframes rotate {
+    from{
+        transform: rotate(0deg);
+    }to{
+        transform: rotate(360deg);
+    }
+}
