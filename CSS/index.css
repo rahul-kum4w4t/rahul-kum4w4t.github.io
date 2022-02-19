@@ -11,10 +11,48 @@ html{
 body {
     margin: 0px;
     padding: 0px;
+    min-height: 200px;
+    min-width: 500px;
 }
 
 .content-container {
     background-color: var(--color1);
     box-sizing: border-box;
     overflow: hidden;
+}
+
+.dashboard {
+    display: none;
+}
+
+.card-container {
+    display: none;
+}
+
+.experience-container {
+    display: none;
+}
+
+.contact-info {
+    display: none;
+}
+
+
+/****************** Mobile devices ***************/
+@media (pointer:coarse) and (orientation:portrait) {
+    .dashboard {
+        display: flex;
+    }
+    
+    .card-container {
+        display: flex;
+    }
+    
+    .experience-container {
+        display: flex;
+    }
+    
+    .contact-info {
+        display: flex;
+    }
 }

@@ -6,11 +6,14 @@
 
     <link rel="stylesheet" href=".\CSS\index.css" />
     <!--<link rel="stylesheet" href=".\CSS\menu.css" />-->
+    <link rel="stylesheet" href=".\CSS\dashboard.css" />
+    <link rel="stylesheet" href=".\CSS\experience.css" />
+    <link rel="stylesheet" href=".\CSS\contact-info.css" />
     <link rel="stylesheet" href=".\CSS\side-menu.css" />
 
     <link rel="stylesheet" href=".\CSS\card.css" />
-    <link rel="stylesheet" media="screen and (min-width: 601px)" href=".\CSS\desktop.css" />
-    <link rel="stylesheet" media="screen and (max-aspect-ratio: 9/10)" href=".\CSS\mobile.css" />
+    <!--<link rel="stylesheet" media="screen and (min-width: 601px)" href=".\CSS\desktop.css" />-->
+    <!--<link rel="stylesheet" media="screen and (max-aspect-ratio: 9/10)" href=".\CSS\mobile.css" />-->
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 
@@ -67,156 +70,148 @@
         <span class="fa fa-angle-down side-menu-down" aria-hidden="true"></span>
     </div>
 
-    <div class="rotating-cogs">
-        <i class="fa fa-cog rotation-clockwise"></i>
-        <i class="fa fa-cog rotation-anticlockwise"></i>
-    </div>
-
-    <div class="dashboard">
-        <div class="drop-container">
-            <span class="text">About Me</span>
-            <span class="line"></span>
+    <div>
+        <div class="dashboard selected">
+            <div class="drop-container">
+                <span class="text">About Me</span>
+                <span class="line"></span>
+            </div>
+            <span class="intro" data-typetext="HELLO, I'm Rahul"></span>
+            <span class="intro-about" data-typetext="Fullstack Software Developer"></span>
+            <span class="intro-summary-1" data-typetext="I develop efficient Web based applications and Servers."></span>
+            <span class="intro-summary-2"
+                data-typetext="I'm highly motivated, enthusiastic and always willing to learn."></span>
+            <button class="contact-me">Contact Me</button>
+            <div class="rotating-cogs">
+                <i class="fa fa-cog rotation-clockwise"></i>
+                <i class="fa fa-cog rotation-anticlockwise"></i>
+            </div>
         </div>
-        <span class="intro" data-typetext="HELLO, I'm Rahul"></span>
-        <span class="intro-about" data-typetext="Fullstack Software Developer"></span>
-        <span class="intro-summary-1" data-typetext="I develop efficient Web based applications and Servers."></span>
-        <span class="intro-summary-2"
-            data-typetext="I'm highly motivated, enthusiastic and always willing to learn."></span>
-        <button class="contact-me">Contact Me</button>
-    </div>
-
-    <div class="card-container">
-        <div class="drop-container">
-            <span class="line"></span>
-            <span class="text">Skills</span>
+        <div class="card-container">
+            <div class="card-deck">
+                <div class="card-yellow">
+                    <div>
+                        <img src="images/js.png"></img>
+                    </div>
+                    <div>Used to develop attractive, flexible and dynamic UI elements. Worked till ES10 features of JS.
+                    </div>
+                </div>
+                <div class="card-blue-red">
+                    <div><img src="images/java.png"></img></div>
+                    <div>Worked on many projects related to JAVA technology. Use to develop large scale server applications
+                        usign Spring and Hibernate frameworks.</div>
+                </div>
+                <div class="card-red">
+                    <div><img src="images/html.png"></img></div>
+                    <div>Used to develop attractive UI elemensts. Worked on HTML5 technology.</div>
+                </div>
+                <div class="card-grey">
+                    <div><img src="images/css.png"></img></div>
+                    <div>Use to develop beautiful and creative design using CSS.</div>
+                </div>
+                <div class="card-blue-yellow">
+                    <div><img src="images/python.png"></img></div>
+                    <div>Lerning python to build and deploy robust and reliable ML and AI models.</div>
+                </div>
+                <div class="card-orange">
+                    <div><img src="images/sql.png"></img></div>
+                    <div>Using MSSQL database to support large entrprise appications.</div>
+                </div>
+                <div class="card-green">
+                    <div><img src="images/mongodb.png"></img></div>
+                    <div>Using MongoDB NO-SQL database to support small application and microservices.</div>
+                </div>
+                <div class="card-green restack">
+                    <div><img src="images/node.png"></img></div>
+                    <div>Use to develop robust, scalable and relaibale servers and microservices using NodeJS technology.
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="card-deck">
-            <div class="card-yellow">
+        <div class="experience-container">
+            <div class="experience">
                 <div>
-                    <img src="images/js.png"></img>
+                    <span class="selected"></span>
+                    <span></span>
+                    <span></span>
                 </div>
-                <div>Used to develop attractive, flexible and dynamic UI elements. Worked till ES10 features of JS.
+                <div>
+                    <span class="selected" data-index="0">
+                        <span>Jul 2021 - Present</span>
+                        <span>Siemens Technologies</span>
+                    </span>
+                    <span data-index="1">
+                        <span>Aug 2018 - June 2021</span>
+                        <span>Infosys Ltd</span>
+                    </span>
+                    <span data-index="2">
+                        <span>Apr 2017 - Jul 2018</span>
+                        <span>Bizee Technologies Pvt Ltd</span>
+                    </span>
                 </div>
-            </div>
-            <div class="card-blue-red">
-                <div><img src="images/java.png"></img></div>
-                <div>Worked on many projects related to JAVA technology. Use to develop large scale server applications
-                    usign Spring and Hibernate frameworks.</div>
-            </div>
-            <div class="card-red">
-                <div><img src="images/html.png"></img></div>
-                <div>Used to develop attractive UI elemensts. Worked on HTML5 technology.</div>
-            </div>
-            <div class="card-grey">
-                <div><img src="images/css.png"></img></div>
-                <div>Use to develop beautiful and creative design using CSS.</div>
-            </div>
-            <div class="card-blue-yellow">
-                <div><img src="images/python.png"></img></div>
-                <div>Lerning python to build and deploy robust and reliable ML and AI models.</div>
-            </div>
-            <div class="card-orange">
-                <div><img src="images/sql.png"></img></div>
-                <div>Using MSSQL database to support large entrprise appications.</div>
-            </div>
-            <div class="card-green">
-                <div><img src="images/mongodb.png"></img></div>
-                <div>Using MongoDB NO-SQL database to support small application and microservices.</div>
-            </div>
-            <div class="card-green restack">
-                <div><img src="images/node.png"></img></div>
-                <div>Use to develop robust, scalable and relaibale servers and microservices using NodeJS technology.
+                <div>
+                    <span class="selected">
+                        <ul>
+                            <li>Working on Serverless technology to develop microservices to serve
+                                the existing Web application in Company domain</li>
+                            <li>Developing backend architecture in AWS cloud with NodeJS,
+                                MongoDB, Java and Serverless technologies.</li>
+                        </ul>
+                    </span>
+                    <span>
+                        <ul>
+                            <li>Working as a developer in ServiceNow (NY), Java 8, JavaScript (ES6)
+                                technologies</li>
+                            <li>Mostly focused on API development with third party applications like
+                                Slack, PagerDuty etc</li>
+                            <li>Help created an application in Node JS technology to act as API
+                                gateway which is used to authenticate and then redirect the requests to
+                                appropriate server</li>
+                        </ul>
+                    </span>
+                    <span>
+                        <ul>
+                            <li>Worked as a developer in Java 7, JavaScript (ES6), Angular JS 1.2,
+                                HTML 5, CSS, Spring 3.x, MySQL 5.x, Hibernate technologies</li>
+                            <li>Developed, tested and deployed an efficiently written module under
+                                “BizIDE” project. The module name is “User Management” which is use
+                                to manage, authenticate and provide user specific data to the client
+                                application</li>
+                            <li>Developed a web-based application named “Interfiber” using Java 7,
+                                HTML 5, CSS, JavaScript (ES6), Spring 3.x and Hibernate
+                                technologies. Interfiber is a second-tier multinational network provider
+                                which use to manage, maintain and generates bills for internet
+                                consumption by its consumer nodes</li>
+                            <li>Help build an android based application called “TikTun HRMS” which
+                                uses web portal to manage all human resources work like attendance
+                                and leave information</li>
+                            <li>Lead a web site development for “Autodesk” using Java 7, Spring 3.x
+                                and Hibernate technology. Autodesk is a student and educators’
+                                community website</li>
+                        </ul>
+                    </span>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="experience-container">
-        <div class="drop-container">
-            <span class="text">Experience</span>
-            <span class="line"></span>
+        <div class="contact-info">
+            <span>Get In Touch</span>
+            <span>
+                <a href="tel:+91-7349277187"><i class="fa fa-phone" aria-hidden="true"></i>73492 77187</a>
+                <a href="mailto:rahul.kumawat1590@gmail.com?subject=Regarding: &body=Hi Rahul,">
+                    <i class="fa fa-envelope-o"></i>rahul.kumawat1590@gmail.com
+                </a>
+                <a
+                    href="https://www.google.com/maps/place/Nehra's+House/@25.9309012,74.6483365,15z/data=!4m5!3m4!1s0x0:0x7db6c258fa2ecf8e!8m2!3d25.9309017!4d74.6483488" target="_blank">
+                    <i class="fa fa-map-marker" aria-hidden="true"></i>24/28 Bijainagar (India)
+                </a>
+            </span>
+            <span>
+                <a href="https://github.com/rahul-kum4w4t" target="_blank"><i class="fa fa-github" aria-hidden="true"></i></a>
+                <a href="https://www.linkedin.com/in/rk-m07xc/" target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+                <a href="https://stackoverflow.com/users/11012355/rk-15" target="_blank"><i class="fa fa-stack-overflow" aria-hidden="true"></i></a>
+                <a href="https://drive.google.com/file/d/11lO9gG0WBiKx8pL9J2eUNFiMVzKzMQkW/view?usp=sharing" target="_blank"><img src="./images/cv.png"></img></a>
+            </span>
         </div>
-        <div class="experience">
-            <div>
-                <span class="selected"></span>
-                <span></span>
-                <span></span>
-            </div>
-            <div>
-                <span class="selected" data-index="0">
-                    <span>Jul 2021 - Present</span>
-                    <span>Siemens Technologies</span>
-                </span>
-                <span data-index="1">
-                    <span>Aug 2018 - June 2021</span>
-                    <span>Infosys Ltd</span>
-                </span>
-                <span data-index="2">
-                    <span>Apr 2017 - Jul 2018</span>
-                    <span>Bizee Technologies Pvt Ltd</span>
-                </span>
-            </div>
-            <div>
-                <span class="selected">
-                    <ul>
-                        <li>Working on Serverless technology to develop microservices to serve
-                            the existing Web application in Company domain</li>
-                        <li>Developing backend architecture in AWS cloud with NodeJS,
-                            MongoDB, Java and Serverless technologies.</li>
-                    </ul>
-                </span>
-                <span>
-                    <ul>
-                        <li>Working as a developer in ServiceNow (NY), Java 8, JavaScript (ES6)
-                            technologies</li>
-                        <li>Mostly focused on API development with third party applications like
-                            Slack, PagerDuty etc</li>
-                        <li>Help created an application in Node JS technology to act as API
-                            gateway which is used to authenticate and then redirect the requests to
-                            appropriate server</li>
-                    </ul>
-                </span>
-                <span>
-                    <ul>
-                        <li>Worked as a developer in Java 7, JavaScript (ES6), Angular JS 1.2,
-                            HTML 5, CSS, Spring 3.x, MySQL 5.x, Hibernate technologies</li>
-                        <li>Developed, tested and deployed an efficiently written module under
-                            “BizIDE” project. The module name is “User Management” which is use
-                            to manage, authenticate and provide user specific data to the client
-                            application</li>
-                        <li>Developed a web-based application named “Interfiber” using Java 7,
-                            HTML 5, CSS, JavaScript (ES6), Spring 3.x and Hibernate
-                            technologies. Interfiber is a second-tier multinational network provider
-                            which use to manage, maintain and generates bills for internet
-                            consumption by its consumer nodes</li>
-                        <li>Help build an android based application called “TikTun HRMS” which
-                            uses web portal to manage all human resources work like attendance
-                            and leave information</li>
-                        <li>Lead a web site development for “Autodesk” using Java 7, Spring 3.x
-                            and Hibernate technology. Autodesk is a student and educators’
-                            community website</li>
-                    </ul>
-                </span>
-            </div>
-        </div>
-    </div>
-    <div class="contact-info">
-        <span>Get In Touch</span>
-        <span>
-            <a href="tel:+91-7349277187"><i class="fa fa-phone" aria-hidden="true"></i>73492 77187</a>
-            <a href="mailto:rahul.kumawat1590@gmail.com?subject=Regarding: &body=Hi Rahul,">
-                <i class="fa fa-envelope-o"></i>rahul.kumawat1590@gmail.com
-            </a>
-            <a
-                href="https://www.google.com/maps/place/Nehra's+House/@25.9309012,74.6483365,15z/data=!4m5!3m4!1s0x0:0x7db6c258fa2ecf8e!8m2!3d25.9309017!4d74.6483488" target="_blank">
-                <i class="fa fa-map-marker" aria-hidden="true"></i>24/28 Bijainagar (India)
-            </a>
-        </span>
-        <span>
-            <a href="https://github.com/rahul-kum4w4t" target="_blank"><i class="fa fa-github" aria-hidden="true"></i></a>
-            <a href="https://www.linkedin.com/in/rk-m07xc/" target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
-            <a href="https://stackoverflow.com/users/11012355/rk-15" target="_blank"><i class="fa fa-stack-overflow" aria-hidden="true"></i></a>
-            <a href="https://drive.google.com/file/d/11lO9gG0WBiKx8pL9J2eUNFiMVzKzMQkW/view?usp=sharing" target="_blank"><img src="./images/cv.png"></img></a>
-        </span>
     </div>
 
 </body>

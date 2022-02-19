@@ -69,7 +69,13 @@ export default function onLoad() {
     function navigateAndClear(elem, items, up, down) {
         
         elem.classList.add("selected");
-        document.querySelector(`.${elem.dataset.navigate}`).scrollIntoView();
+        const elemToDisplay = document.querySelector(`.${elem.dataset.navigate}`);
+        for(let elem of elemToDisplay.parentElement.children){
+            if(elem.classList.contains("selected")) {
+                elem.classList.remove("selected");
+            }
+        }
+        elemToDisplay.classList.add("selected");
         
         if (elem == items[0]) {
             up.classList.add("bound");

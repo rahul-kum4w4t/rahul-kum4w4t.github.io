@@ -119,10 +119,10 @@
     font-size: max(3vmin, 11.5px) !important;
     min-width: max(7vmin, 20px);
     min-height: max(7vmin, 20px);
-    transition: min-width 1s ease-in-out,
-    min-height 1s ease-in-out,
-    font-size 1s ease-in-out,
-    line-height 1s ease-in-out;
+    transition: min-width 0.5s ease-in-out,
+    min-height 0.5s ease-in-out,
+    font-size 0.5s ease-in-out,
+    line-height 0.5s ease-in-out;
 }
 
 .side-menu:hover > span.side-menu-content {

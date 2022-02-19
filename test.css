@@ -1,0 +1,65 @@
+body { 
+    margin: 0px;
+    padding:0px;
+}
+
+div.skills-container
+{
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+div.skills-palatte {
+    width: 80vh;
+    height: 80vw;
+    transform: rotate(-90deg);
+    position: absolute;
+    box-shadow: 0px 0px 5px 0.5px white;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    padding: 0px 10px;
+
+    background-color: rgba(255,255,255,0.1);
+
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: white;
+    overflow: hidden;
+}
+
+div.skills-palatte >  div > div:first-child {
+    flex: 1 1 auto;
+    max-height: max(9vmin, 15px);
+
+    line-height: max(8vh, 12px);
+    font-size: max(3vh, 5px);
+
+    background-size: max(8vmin, 12px);
+    background-repeat: no-repeat;
+    background-position: left center;
+    
+    padding: 10px 10px 0px calc(max(9vmin, 15px) + 15px);
+
+    border-bottom: solid 1px white;
+
+    cursor: pointer;
+}
+
+div.skills-palatte >  div > div:last-child.selected{
+    transform: rotate(90deg);
+    white-space: break-spaces;
+    display: flex;
+}
+
+div.skills-palatte >  div > div:last-child {
+    display: none;
+    height: 80vh;
+}
