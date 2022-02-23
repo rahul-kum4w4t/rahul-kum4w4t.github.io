@@ -23,6 +23,18 @@ export default function onLoad() {
         document.querySelector(".contact-me").style.opacity = 1;
     });
 
+    for (let elem of document.querySelectorAll(".skills-container > .skills-palatte > div")) {
+        elem.addEventListener("mousedown", event => {
+            const selected = event.currentTarget;
+            for (let e of selected.parentElement.children) {
+                if (e!= selected && e.classList.contains("selected")) {
+                    e.classList.remove("selected");
+                    break;
+                }
+            }
+            selected.classList.toggle("selected");
+        });
+    }
 
     document.querySelector(".side-menu").addEventListener("mousedown", ({ target, currentTarget }) => {
 
@@ -151,13 +163,13 @@ export default function onLoad() {
     });*/
 
 
-    for (let card of document.querySelectorAll(".card-container > div.card-deck > div")) {
+    /*for (let card of document.querySelectorAll(".card-container > div.card-deck > div")) {
         card.addEventListener("mousedown", drawCard);
     }
 
     document.querySelector(".card-container > div.card-deck").addEventListener("mouseenter", spreadCards);
 
-    document.querySelector(".card-container > div.card-deck").addEventListener("mouseleave", delayedStackUpdate);
+    document.querySelector(".card-container > div.card-deck").addEventListener("mouseleave", delayedStackUpdate);*/
 
     window.addEventListener('resize', resizeDropBar);
     resizeDropBar();
@@ -203,7 +215,7 @@ function resizeDropBar() {
     }
 }
 
-let cardsOpen = false;
+/*let cardsOpen = false;
 function spreadCards({ currentTarget: { children: cards } }) {
 
     const margin = 40;
@@ -271,4 +283,4 @@ function drawCard(event) {
             drawCard.allow = true;
         }
     }
-}
+}*/

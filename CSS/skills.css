@@ -1,4 +1,4 @@
-div.skills-container
+div.skills-container.selected
 {
     width: 100vw;
     height: fit-content;
@@ -8,13 +8,14 @@ div.skills-container
     justify-content: center;
     align-items: center;
     overflow: hidden;
+    max-width: 100%;
 }
 
 
 
 @media all and (max-aspect-ratio: 2/1){
 
-    div.skills-container
+    div.skills-container.selected
     {
         height: fit-content;
     }
@@ -40,20 +41,19 @@ div.skills-container
     }
 
     div.skills-palatte >  div > div:first-child {
-        max-height: max(7vw, 15px);
-        line-height: max(7vw, 12px);
-        font-size: max(3vw, 5px);
-        background-size: max(6vw, 12px);
+        line-height: max(4.5vw, 12px);
+        font-size: max(2.5vw, 5px);
+        background-size: max(4vw, 12px);
         background-repeat: no-repeat;
         background-position: left center;
-        padding: 10px 10px 0px calc(max(9vw, 15px) + 15px);
+        padding: 10px 10px 0px calc(max(4vw, 15px) + 15px);
         cursor: pointer;
     }
 
     div.skills-palatte >  div > div:last-child {
         height: 0px;
         overflow:hidden;
-        font-size: max(2.5vw, 5px);
+        font-size: max(2vw, 5px);
         color: white;
     }
 
@@ -61,12 +61,16 @@ div.skills-container
         height: 100%;
         padding: 10px 0px;
     }
+
+    div.skills-palatte >  div.selected{
+        background-color: rgba(80,20,20,0.3);
+    }
 }
 
 
 @media all and (min-aspect-ratio: 2/1) and (max-aspect-ratio: 3/1)  {
 
-    div.skills-container
+    div.skills-container.selected
     {
         height: 100vh;
     }
@@ -110,10 +114,12 @@ div.skills-container
         height: 0px;
         overflow:hidden;
         font-size: max(2.5vh, 5px);
+        line-height: max(4vh, 8px);
         transform-origin: left top;
         width: 0px;
         transition: all 1s linear;
-        color: transparent;
+        color: white;
+        opacity: 0;
     }
 
     div.skills-palatte >  div.selected > div:last-child {
@@ -122,17 +128,21 @@ div.skills-container
         animation: appear 0.5s linear 1s 1 forwards;
     }
 
+    div.skills-palatte >  div.selected{
+        background-color: rgba(80,20,20,0.3);
+    }
+
     @keyframes appear {
         from{
-            color: transparent;
+            opacity: 0;
         }to{
-            color: white;
+            opacity: 1;
         }
     }
 }
 
 @media all and (min-aspect-ratio: 3/1){
-    div.skills-container
+    div.skills-container.selected
     {
         height: fit-content;
     }
@@ -178,4 +188,9 @@ div.skills-container
     div.skills-palatte >  div:hover {
         box-shadow: 0px 0px 1px 0.5px white;
     }
+}
+
+div.skills-palatte > div > div:last-child > i {
+    color: var(--color2);
+    text-shadow: 0px 0px 4px var(--color2);
 }
