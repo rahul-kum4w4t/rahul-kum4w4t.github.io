@@ -18,6 +18,7 @@ div.skills-container.selected
     div.skills-container.selected
     {
         height: fit-content;
+        min-height: 100vh;
     }
 
     div.skills-palatte {
@@ -37,11 +38,10 @@ div.skills-container.selected
 
     div.skills-palatte >  div {
         flex: 1 1 auto;
-        border-bottom: solid 1px white;
     }
 
     div.skills-palatte >  div > div:first-child {
-        line-height: max(4.5vw, 12px);
+        line-height: max(7vw, 15px);
         font-size: max(2.5vw, 5px);
         background-size: max(4vw, 12px);
         background-repeat: no-repeat;
@@ -55,15 +55,25 @@ div.skills-container.selected
         overflow:hidden;
         font-size: max(2vw, 5px);
         color: white;
+        transition: height 0.5s linear, opacity 0.5s linear;
+        opacity: 0;
     }
 
     div.skills-palatte >  div.selected > div:last-child {
-        height: 100%;
+        height: max(10vw, 50px);
         padding: 10px 0px;
+        opacity: 1;
     }
 
     div.skills-palatte >  div.selected{
         background-color: rgba(80,20,20,0.3);
+        border-bottom: solid 0.5px white;
+        border-top: solid 0.5px white;
+    }
+
+    div.skills-palatte > div > div:last-child > i {
+        color: var(--color2);
+        font-size: max(1.5vw, 10px);
     }
 }
 
@@ -73,6 +83,7 @@ div.skills-container.selected
     div.skills-container.selected
     {
         height: 100vh;
+        min-height: 100vh;
     }
 
     div.skills-palatte {
@@ -117,7 +128,7 @@ div.skills-container.selected
         line-height: max(4vh, 8px);
         transform-origin: left top;
         width: 0px;
-        transition: all 1s linear;
+        transition: height 0.5s linear, width 0.5s linear;
         color: white;
         opacity: 0;
     }
@@ -125,11 +136,16 @@ div.skills-container.selected
     div.skills-palatte >  div.selected > div:last-child {
         width: 100% !important;
         height: 70vh;
-        animation: appear 0.5s linear 1s 1 forwards;
+        animation: appear 0.5s linear 0.5s 1 forwards;
     }
 
     div.skills-palatte >  div.selected{
         background-color: rgba(80,20,20,0.3);
+    }
+
+    
+    div.skills-palatte > div > div:last-child > i {
+        color: var(--color2);
     }
 
     @keyframes appear {
@@ -145,6 +161,7 @@ div.skills-container.selected
     div.skills-container.selected
     {
         height: fit-content;
+        min-height: 100vh;
     }
 
     div.skills-palatte {
@@ -188,9 +205,9 @@ div.skills-container.selected
     div.skills-palatte >  div:hover {
         box-shadow: 0px 0px 1px 0.5px white;
     }
-}
 
-div.skills-palatte > div > div:last-child > i {
-    color: var(--color2);
-    text-shadow: 0px 0px 4px var(--color2);
+    div.skills-palatte > div > div:last-child > i {
+        color: var(--color2);
+        font-size: max(0.9vw, 9px);
+    }
 }
