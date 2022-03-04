@@ -4,11 +4,66 @@
     --color3: rgba(50, 50, 50);
 }
 
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: grey;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #E74C3C;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
 body {
     margin: 0px;
     padding: 0px;
+    min-height: 200px;
+    min-width: 500px;
 }
 
-.content-container {
-    background-color: var(--color1);
+.dashboard {
+    display: none;
+}
+
+.skills-container {
+    display: none;
+}
+
+.experience-container {
+    display: none;
+}
+
+.contact-info {
+    display: none;
+}
+
+
+/****************** Mobile devices ***************/
+@media (pointer:coarse) and (orientation:portrait) {
+    .dashboard {
+        display: flex;
+    }
+    
+    .skills-container {
+        display: flex;
+    }
+    
+    .experience-container {
+        display: flex;
+    }
+    
+    .contact-info {
+        display: flex;
+    }
+
+    body {
+        height: fit-content;
+    }
 }

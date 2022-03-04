@@ -1,0 +1,241 @@
+.dashboard.selected {
+    display:flex;
+}
+.dashboard {
+    height: 100vh;
+    min-height: 200px;
+    min-width: 500px;
+    box-sizing: border-box;
+    overflow: hidden;
+
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 0px 40px 0px max(15vmin, 40px); 
+    
+    background-color: var(--color1);
+}
+
+.contact-me {
+    min-width: max(15vw, 150px);
+    height: max(7vmin, 15px);
+    font-size: max(2.5vmin, 10px);
+    margin-top: 10px;
+    background-color: white;
+    white-space: nowrap;
+    border: none;
+    padding: 0px 20px;
+    color: var(--color2);
+    font-family: cursive, arial, monospace;
+    font-weight: bold;
+    transition: all 0.5s;
+    cursor: pointer;
+    opacity: 0;
+    z-index: 1;
+}
+
+.contact-me:hover {
+    min-width: max(20vw, 150px);
+    background-color: rgba(231,76,60,0.3); 
+}
+
+.contact-me:active {
+    color: white;
+    background-color: var(--color2);
+}
+
+.rotating-cogs {
+    position:absolute;
+    right: min(25vmin, 150px);
+    box-sizing: border-box;
+    color:  grey;
+    opacity: 0.1;
+    top : max(15vmin, 50px);
+}
+
+.rotating-cogs > i:first-child {
+    font-size: max(50vmin, 150px);
+}
+
+.rotating-cogs > i:last-child {
+    font-size: max(30vmin,60px);
+    position:absolute;
+    top: max(30vmin, 75px);
+    right:max(40vmin, 130px);
+}
+
+
+.intro{
+    font-size: max(13vmin, 30px);
+    font-family: Fantasy, arial, monospace;
+    margin:0px;
+    color:var(--color2);
+    width:fit-content;
+}
+
+.intro-about {
+    font-family:cursive,arial, monospace;;
+    font-size: max(5vmin, 15px);
+    color:white;
+    width:fit-content;
+}
+
+.intro-summary-1, .intro-summary-2{
+    font-size: max(3vmin, 7px);
+    font-family: cursive, arial, monospace;
+    color: white;
+    line-height: 2.5em;
+}
+
+.drop-container {
+    position: absolute;
+    top: max(50vh, 100px);
+    background-color:transparent;
+    transform: rotate(-90deg);
+    width: max(80vh, 160px);
+    color: var(--color2);
+
+    display: flex;
+    flex-direction: row;
+    justify-content: stretch;
+    align-items: center;
+    overflow: hidden;
+    box-sizing: border-box;
+    margin: 0px;
+    font-family: arial,sans-serif;
+    font-size: max(2.5vmin, 7px);
+}
+
+.drop-container > .line {
+    height:0px;
+    width: 0px;
+    box-shadow: 0px 0px 0.5px 0.3px var(--color2);
+    background-color: var(--color2);
+    margin: 0px 10px 0px 10px;
+    animation: drop-line 2s forwards ease-in-out;
+}
+
+.drop-container > .text {
+    min-width: fit-content;
+}
+
+
+@keyframes drop-line{
+    from { width:0%;}
+    to { width:100%;}
+}
+
+
+@-webkit-keyframes rotating-clockwise /* Safari and Chrome */ {
+    from {
+        -webkit-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    to {
+        -webkit-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+@keyframes rotating-clockwise {
+    from {
+        -ms-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    to {
+        -ms-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -webkit-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+.rotation-clockwise {
+    -webkit-animation: rotating-clockwise 20s linear infinite;
+    -moz-animation: rotating-clockwise 20s linear infinite;
+    -ms-animation: rotating-clockwise 20s linear infinite;
+    -o-animation: rotating-clockwise 20s linear infinite;
+    animation: rotating-clockwise 20s linear infinite;
+  }
+
+  @-webkit-keyframes rotating-anticlockwise /* Safari and Chrome */ {
+    from {
+        -webkit-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+    to {
+        -webkit-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+}
+@keyframes rotating-anticlockwise {
+    from {
+        -ms-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -webkit-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+    to {
+        -ms-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+}
+
+.rotation-anticlockwise {
+    -webkit-animation: rotating-anticlockwise 20s linear infinite;
+    -moz-animation: rotating-anticlockwise 20s linear infinite;
+    -ms-animation: rotating-anticlockwise 20s linear infinite;
+    -o-animation: rotating-anticlockwise 20s linear infinite;
+    animation: rotating-anticlockwise 20s linear infinite;
+  }
+
+
+
+
+
+
+
+
+  /************** Monile device ********************************/
+
+  @media (pointer:coarse)  and (orientation: portrait) {
+    .drop-container {
+        display: none;
+    }
+
+    .dashboard {
+        min-height: 400px;
+        align-items: center;
+        padding: 0px 40px 0px 40px;
+    }
+
+    .contact-me {
+        width: 90vw;
+        max-width: 600px;
+        height: max(10vmin,50px);
+        font-size: max(4vmin, 25px);
+        margin-top: 20px;
+        z-index: 1;
+    }
+  }
+
+  @media (pointer:coarse) and (orientation: landscape) {
+    .contact-me {
+        width: 70vw;
+        max-width: 400px;
+        height: max(10vmin,50px);
+        font-size: max(3vmin, 20px);
+        z-index: 1;
+    }
+  }

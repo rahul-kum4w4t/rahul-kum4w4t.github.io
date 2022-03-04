@@ -1,68 +1,222 @@
 <html>
 
 <head>
-    <title>This is Rahul</title>
+    <title>Know Rahul</title>
     <link rel="icon" href="images/logo.png" type="image/icon type">
 
     <link rel="stylesheet" href=".\CSS\index.css" />
-    <link rel="stylesheet" media="screen and (min-width: 601px)" href=".\CSS\desktop.css" />
-    <link rel="stylesheet" media="screen and (max-aspect-ratio: 9/10)" href=".\CSS\mobile.css" />
-    
+    <link rel="stylesheet" href=".\CSS\dashboard.css" />
+    <link rel="stylesheet" href=".\CSS\skills.css" />
+    <link rel="stylesheet" href=".\CSS\experience.css" />
+    <link rel="stylesheet" href=".\CSS\contact-info.css" />
+    <link rel="stylesheet" href=".\CSS\side-menu.css" />
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 
     <script type="module">
-        import TypeWriterEffect from './JS/typewriter-effect.js';
+        import onLoad from './JS/main.js';
         window.onload = () => {
-            new TypeWriterEffect(
-                document.getElementsByClassName("intro")[0],
-                "Hi I'm RAHUL",
-                {
-                    cursorColor: "white",
-                    wait: 0
-                }
-            ).startTyping().then(() => {
-                return new TypeWriterEffect(
-                    document.getElementsByClassName("intro-about")[0],
-                    "Fullstack Web Developer & ML Engineer",
-                    { cursorColor: "white" }
-                ).startTyping();
-            });
+            onLoad();
         };
     </script>
 </head>
 
 <body>
-    <div class="right-side-line">
-        <a href="https://www.linkedin.com/in/rk-m07xc/" target="_blank">
-            <i class="fa fa-linkedin" aria-hidden="true"></i>
-        </a>
-        <a href="https://stackoverflow.com/users/11012355/rk-15" target="_blank">
-            <i class="fa fa-stack-overflow" aria-hidden="true"></i>
-        </a>
+    <!-- Side Menu -->
+    <div class="side-menu right">
+        <span class="fa fa-angle-up side-menu-up bound" aria-hidden="true"></span>
+        <span class="side-menu-content">
+            <span class="side-menu-item selected" data-navigate="dashboard">
+                <span>About Me</span>
+                <span class="fa fa-user"></span>
+            </span>
+            <span class="side-menu-item" data-navigate="skills-container">
+                <span>Skills</span>
+                <span class="fa fa-wrench"></span>
+            </span>
+            <span class="side-menu-item" data-navigate="experience-container">
+                <span>Experience</span>
+                <span class="fa fa-line-chart"></span>
+            </span>
+            <span class="side-menu-item" data-navigate="contact-info">
+                <span>Contact Me</span>
+                <span class="fa fa-phone"></span>
+            </span>
+        </span>
+        <span class="fa fa-angle-down side-menu-down" aria-hidden="true"></span>
     </div>
-    
-    <div class="content-container">
-        <div class="dashboard">
-            <div class="dashboard_lambda">
+
+    <!-- Main Content Container -->
+    <div>
+        <!-- About Me Page -->
+        <div class="dashboard selected">
+            <div class="drop-container">
+                <span class="text">About Me</span>
+                <span class="line"></span>
+            </div>
+            <span class="intro" data-typetext="HELLO, I'm Rahul"></span>
+            <span class="intro-about" data-typetext="Fullstack Software Developer"></span>
+            <span class="intro-summary-1"
+                data-typetext="I develop efficient Web based applications and Servers."></span>
+            <span class="intro-summary-2"
+                data-typetext="I'm highly motivated, enthusiastic and always willing to learn."></span>
+            <button class="contact-me">Contact Me</button>
+            <div class="rotating-cogs">
                 <i class="fa fa-cog rotation-clockwise"></i>
                 <i class="fa fa-cog rotation-anticlockwise"></i>
             </div>
-            <span class="intro" style="margin:0px;color:var(--color2);width:fit-content;"></span>
-            <span class="intro-about"></span>
         </div>
-        <div class="second-page">
-            <div class="profile-pic"><img src="images/profile_pic.jfif"></img></div>
-            <div class="about-me">
-                <p>About Me</p>
-                <p>I'm a Professional Fullstack Software Developer based in Banglore. <br>I'm very passionate about
-                    building Softwares which can help people around me and entire society.<br>I'm highly motivated and
-                    enthusiastic always willing to learn.</p>
+        <!-- Skills Page -->
+        <div class="skills-container">
+            <div class="skills-palatte">
+                <div class="selected">
+                    <div style="background-image: url('./images/icon_js.png');">JavaScript</div>
+                    <div>
+                        Proficiency : <i class="fa fa-star " aria-hidden="true"></i>&nbsp;<i class="fa fa-star "
+                            aria-hidden="true"></i>&nbsp;<i class="fa fa-star " aria-hidden="true"></i>&nbsp;<i
+                            class="fa fa-star " aria-hidden="true"></i>&nbsp;<i class="fa fa-star "
+                            aria-hidden="true"></i><br />
+                        Projects Worked on: 10<br />
+                        Frameworks Used: jQuery
+                    </div>
+                </div>
+                <div>
+                    <div style="background-image: url('./images/node.png');">NodeJS</div>
+                    <div>
+                        Proficiency : <i class="fa fa-star " aria-hidden="true"></i>&nbsp;<i class="fa fa-star "
+                            aria-hidden="true"></i>&nbsp;<i class="fa fa-star " aria-hidden="true"></i>&nbsp;<i
+                            class="fa fa-star " aria-hidden="true"></i>&nbsp;<i class="fa fa-star-half-o"
+                            aria-hidden="true"></i><br />
+                        Projects Worked on: 4<br />
+                        Frameworks Used: Express, Handlebar Mustache, Mongoose
+                    </div>
+                </div>
+                <div>
+                    <div style="background-image: url('./images/java.png');">Java</div>
+                    <div>
+                        Proficiency : <i class="fa fa-star " aria-hidden="true"></i>&nbsp;<i class="fa fa-star "
+                            aria-hidden="true"></i>&nbsp;<i class="fa fa-star " aria-hidden="true"></i>&nbsp;<i
+                            class="fa fa-star " aria-hidden="true"></i>&nbsp;<i class="fa fa-star-o"
+                            aria-hidden="true"></i><br />
+                        Projects Worked on: 3<br />
+                        Frameworks Used: Spring, Hibernate
+                    </div>
+                </div>
+                <div>
+                    <div style="background-image: url('./images/icon_python.png');">Python</div>
+                    <div>
+                        Proficiency : <i class="fa fa-star " aria-hidden="true"></i>&nbsp;<i class="fa fa-star "
+                            aria-hidden="true"></i>&nbsp;<i class="fa fa-star " aria-hidden="true"></i>&nbsp;<i
+                            class="fa fa-star-o " aria-hidden="true"></i>&nbsp;<i class="fa fa-star-o "
+                            aria-hidden="true"></i><br />
+                        Projects Worked on: 1
+                    </div>
+                </div>
+                <div>
+                    <div style="background-image: url('./images/icon_html.png');">HTML</div>
+                    <div>
+                        Proficiency : <i class="fa fa-star " aria-hidden="true"></i>&nbsp;<i class="fa fa-star"
+                            aria-hidden="true"></i>&nbsp;<i class="fa fa-star" aria-hidden="true"></i>&nbsp;<i
+                            class="fa fa-star" aria-hidden="true"></i>&nbsp;<i class="fa fa-star-o"
+                            aria-hidden="true"></i><br />
+                        Projects Worked on: 5
+                    </div>
+                </div>
+                <div>
+                    <div style="background-image: url('./images/icon_css.png');">CSS</div>
+                    <div>
+                        Proficiency : <i class="fa fa-star " aria-hidden="true"></i>&nbsp;<i class="fa fa-star "
+                            aria-hidden="true"></i>&nbsp;<i class="fa fa-star " aria-hidden="true"></i>&nbsp;<i
+                            class="fa fa-star-half-o " aria-hidden="true"></i>&nbsp;<i class="fa fa-star-o"
+                            aria-hidden="true"></i><br />
+                        Projects Worked on: 5
+                    </div>
+                </div>
+                <div>
+                    <div style="background-image: url('./images/mongodb.png');">MongoDB</div>
+                    <div>
+                        Proficiency : <i class="fa fa-star " aria-hidden="true"></i>&nbsp;<i class="fa fa-star "
+                            aria-hidden="true"></i>&nbsp;<i class="fa fa-star " aria-hidden="true"></i>&nbsp;<i
+                            class="fa fa-star-half-o " aria-hidden="true"></i>&nbsp;<i class="fa fa-star-o"
+                            aria-hidden="true"></i><br />
+                        Projects Worked on: 2
+                    </div>
+                </div>
+                <div>
+                    <div style="background-image: url('./images/icon_react.png');">ReactJS</div>
+                    <div>
+                        Proficiency : <i class="fa fa-star " aria-hidden="true"></i>&nbsp;<i class="fa fa-star "
+                            aria-hidden="true"></i>&nbsp;<i class="fa fa-star-o " aria-hidden="true"></i>&nbsp;<i
+                            class="fa fa-star-o " aria-hidden="true"></i>&nbsp;<i class="fa fa-star-o"
+                            aria-hidden="true"></i><br />
+                        Projects Worked on: 1
+                    </div>
+                </div>
+                <div>
+                    <div style="background-image: url('./images/icon_sql.png');">SQL</div>
+                    <div>
+                        Proficiency : <i class="fa fa-star " aria-hidden="true"></i>&nbsp;<i class="fa fa-star "
+                            aria-hidden="true"></i>&nbsp;<i class="fa fa-star " aria-hidden="true"></i>&nbsp;<i
+                            class="fa fa-star-half-o " aria-hidden="true"></i>&nbsp;<i class="fa fa-star-o"
+                            aria-hidden="true"></i><br />
+                        Projects Worked on: 4
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="technologies">
-        <div style="position: relative;">
-            <span><span style="color:rgb(20,20,20)">J</span>ava<span style="color:rgb(100,100,100)">S</span>cript</span>
+        <!-- Experience Page -->
+        <div class="experience-container">
+            <div class="cross-line">
+                <div class="selected" data-id="siemens">2021 - Present</div>
+                <div data-id="infy">2018 - 2021</div>
+                <div data-id="bizee">2017 - 2018</div>
+            </div>
+            <div class="left-top selected" data-id="siemens">Simens Technology Pvt. Ltd.</div>
+            <div class="right-bottom selected" data-id="siemens">
+                <span>Role</span><span>Software Developer</span>
+                <span>Total Experience</span><span>8 Months</span>
+                <span>Tools & Technologies</span>
+                <span>JavaScript, NodeJS, Express, Mongoose, Java, Spring, Python, Serverless, AWS,
+                    Micro-Services</span>
+            </div>
+            <div class="left-top" data-id="infy">Infosys Limited</div>
+            <div class="right-bottom" data-id="infy">
+                <span>Role</span><span>Software Developer</span>
+                <span>Total Experience</span><span>2 Year 10 Months</span>
+                <span>Tools & Technologies</span>
+                <span>JavaScript, NodeJS, ServiceNow, Java, Spring, Micro-Services</span>
+            </div>
+            <div class="left-top" data-id="bizee">Bizee Technologies Pvt. Ltd.</div>
+            <div class="right-bottom" data-id="bizee">
+                <span>Role</span><span>Software Developer</span>
+                <span>Total Experience</span><span>1 Year 4 Months</span>
+                <span>Tools & Technologies</span>
+                <span>JavaScript, Java, PhP, C#, Spring, Hibernate, Laravel</span>
+            </div>
+        </div>
+        <!-- Contact Information Page -->
+        <div class="contact-info">
+            <span>Get In Touch</span>
+            <span>
+                <a href="tel:+91-7349277187"><i class="fa fa-phone" aria-hidden="true"></i>+91-73492 77187</a>
+                <a href="mailto:rahul.kumawat1590@gmail.com?subject=Regarding: &body=Hi Rahul,">
+                    <i class="fa fa-envelope-o"></i>rahul.kumawat1590@gmail.com
+                </a>
+                <a href="https://www.google.com/maps/place/Rajasthan/@26.5601012,69.3794955,6z/data=!3m1!4b1!4m5!3m4!1s0x396a3efaf7e30e37:0xb52b9b4506c088e5!8m2!3d27.0238036!4d74.2179326"
+                    target="_blank">
+                    <i class="fa fa-map-marker" aria-hidden="true"></i>Rajasthan, India
+                </a>
+            </span>
+            <span>
+                <a href="https://github.com/rahul-kum4w4t" target="_blank"><i class="fa fa-github"
+                        aria-hidden="true"></i></a>
+                <a href="https://www.linkedin.com/in/rk-m07xc/" target="_blank"><i class="fa fa-linkedin"
+                        aria-hidden="true"></i></a>
+                <a href="https://stackoverflow.com/users/11012355/rk-15" target="_blank"><i class="fa fa-stack-overflow"
+                        aria-hidden="true"></i></a>
+                <a href="https://drive.google.com/file/d/11lO9gG0WBiKx8pL9J2eUNFiMVzKzMQkW/view?usp=sharing"
+                    target="_blank"><img src="./images/cv.png"></img></a>
+            </span>
         </div>
     </div>
 </body>
