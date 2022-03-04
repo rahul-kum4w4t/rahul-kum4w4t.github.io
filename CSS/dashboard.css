@@ -119,10 +119,12 @@
     min-width: fit-content;
 }
 
+
 @keyframes drop-line{
     from { width:0%;}
     to { width:100%;}
 }
+
 
 @-webkit-keyframes rotating-clockwise /* Safari and Chrome */ {
     from {

@@ -28,24 +28,21 @@ body {
     min-width: 500px;
 }
 
+.dashboard {
+    display: none;
+}
 
-    
-    .dashboard {
-        display: none;
-    }
+.skills-container {
+    display: none;
+}
 
-    .skills-container {
-        display: none;
-    }
+.experience-container {
+    display: none;
+}
 
-    .experience-container {
-        display: none;
-    }
-
-    .contact-info {
-        display: none;
-    }
-
+.contact-info {
+    display: none;
+}
 
 
 /****************** Mobile devices ***************/

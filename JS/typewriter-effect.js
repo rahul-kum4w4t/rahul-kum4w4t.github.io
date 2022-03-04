@@ -22,6 +22,7 @@ export default class TypeWriterEffect {
         }
 
         this.cursorColor = cursorColor;
+        this.blinkStop = blinkStop;
         this.wait = wait;
 
         this.count = 0;
@@ -49,8 +50,10 @@ export default class TypeWriterEffect {
             this.htmlElem.appendChild(this.para);
 
             setTimeout(this.__setText, this.ms, () => {
-                if (this.wait > 0) setTimeout(this.__stopCursor, this.wait, resolve);
-                else this.__stopCursor(resolve);
+                if (this.blinkStop) {
+                    if (this.wait > 0) setTimeout(this.__stopCursor, this.wait, resolve);
+                    else this.__stopCursor(resolve);
+                }
             });
         }).catch(console.error);
     }
