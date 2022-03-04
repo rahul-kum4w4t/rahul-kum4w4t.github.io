@@ -1,0 +1,120 @@
+body{
+    margin: 0px;
+    padding:0px;
+    overflow: hidden;   
+    background-color: black;
+    height: 100vh;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.round-menu{
+    display: inline-block;
+    width: max(40vmin, 100px);
+    height: max(40vmin, 100px);
+    box-sizing: border-box;
+    position: relative;
+    animation: rotateClockwise 50s linear infinite forwards;
+    -webkit-animation: rotateClockwise 50s linear infinite forwards;
+    -moz-animation: rotateClockwise 50s linear infinite forwards;
+    -ms-animation: rotateClockwise 50s linear infinite forwards;
+    -o-animation: rotateClockwise 50s linear infinite forwards;
+}
+
+.round-menu > span {
+    --rotation: calc(var(--i) * calc(360deg / 20));
+    position: absolute;
+    transform: rotate(var(--rotation));
+    width: inherit;
+    height: inherit;
+    box-sizing: border-box;
+}
+
+.round-menu > span:not(.dot){
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: transparent;
+}
+
+.round-menu > span > a {
+    width: max(7vmin,15px);
+    height: max(7vmin,15px);
+    text-decoration: none;
+    box-shadow: 0px 0px 5px 1px white;
+
+    position: absolute;
+    top: min(-3.5vmin,-7.5px);
+    left: min(-3.5vmin,-7.5px);
+    
+    text-align: center;
+    box-sizing: border-box;
+    border-radius: 50%;
+    color: white;
+    transform: rotate(calc(-1 * var(--rotation)));
+    animation: rotateAntiClockwise 50s linear infinite forwards;
+    -webkit-animation: rotateClockwise 50s linear infinite forwards;
+    -moz-animation: rotateClockwise 50s linear infinite forwards;
+    -ms-animation: rotateClockwise 50s linear infinite forwards;
+    -o-animation: rotateClockwise 50s linear infinite forwards;
+}
+
+.round-menu > span > a > i {
+    font-size: max(4vmin,10px);
+    line-height: max(7vmin,15px);
+}
+
+.round-menu > span > p {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: max(3vmin,5px);
+    animation: rotateAntiClockwise 50s linear infinite forwards;
+    -webkit-animation: rotateClockwise 50s linear infinite forwards;
+    -moz-animation: rotateClockwise 50s linear infinite forwards;
+    -ms-animation: rotateClockwise 50s linear infinite forwards;
+    -o-animation: rotateClockwise 50s linear infinite forwards;
+}
+
+.round-menu:hover {
+    animation-play-state: paused;
+}
+
+.round-menu:hover > span:not(.dot) > * {
+    animation-play-state: paused;
+}
+
+.round-menu > span:not(.dot):hover {
+    border-radius: 50%;
+    border: solid 1px white;
+    z-index: 1;
+}
+
+.round-menu > span:not(.dot) >  a:hover + p {
+    color: white;
+}
+
+.round-menu > span.dot:before {
+    display: inline-block;
+    content: "";
+    border: solid 3px white;
+    border-radius: 50%;
+    box-sizing: border-box;
+}
+
+@keyframes rotateClockwise {
+    to{
+        transform: rotate(0deg);
+    }from{
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes rotateAntiClockwise {
+    to{
+        transform: rotate(calc(-1 * var(--rotation)));
+    }from{
+        transform: rotate(calc(-1 * var(--rotation) - 360deg));
+    }
+}

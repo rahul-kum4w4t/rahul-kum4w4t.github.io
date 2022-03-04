@@ -1,0 +1,71 @@
+.contact-info.selected {
+    display: flex;
+}
+.contact-info {
+    width: 100%;
+    overflow: hidden;
+    box-sizing: border-box;
+    height: 100vh;
+
+    flex-direction : column;
+    justify-content: center;
+    align-items: stretch;
+
+    background: linear-gradient(45deg, rgb(80,20,20),rgb(30,15,15));
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.contact-info > span:not(:last-child) {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.contact-info > span:last-child {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.contact-info > span:first-child { 
+    font-size: 10vmin;
+    color: white;
+}
+
+.contact-info  > span:not(:last-child) > a {
+    text-decoration: none;
+    color: white;
+    padding: 10px;
+    margin: 5px 0px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 3vmin;
+}
+
+.contact-info  > span:last-child > a {
+    text-decoration: none;
+    color: white;
+    padding: 10px;
+    margin: 10px;
+    cursor: pointer;
+    border-radius: 3vmin;
+    font-size: 3vmin;
+}
+
+.contact-info  > span > a:hover {
+    box-shadow: 0px 0px 5px 1px white;
+}
+
+.contact-info  > span > a > i, img {
+    padding: 0px 10px;
+    font-size: 4vmin;
+}
+
+.contact-info  > span > a > img {
+    width: 4vmin;
+    height: 4vmin;
+}
