@@ -1,14 +1,15 @@
 .contact-info.selected {
+    display: flex;
+}
+.contact-info {
     width: 100%;
     overflow: hidden;
     box-sizing: border-box;
     height: 100vh;
 
-    display: flex;
     flex-direction : column;
     justify-content: center;
     align-items: stretch;
-    
 
     background: linear-gradient(45deg, rgb(80,20,20),rgb(30,15,15));
     font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -67,10 +68,4 @@
 .contact-info  > span > a > img {
     width: 4vmin;
     height: 4vmin;
-}
-
-
-
-@media (pointer:coarse) {
-
 }

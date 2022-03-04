@@ -1,11 +1,13 @@
 .dashboard.selected {
+    display:flex;
+}
+.dashboard {
     height: 100vh;
     min-height: 200px;
     min-width: 500px;
     box-sizing: border-box;
     overflow: hidden;
 
-    display:flex;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
@@ -29,6 +31,7 @@
     transition: all 0.5s;
     cursor: pointer;
     opacity: 0;
+    z-index: 1;
 }
 
 .contact-me:hover {
@@ -209,7 +212,7 @@
         display: none;
     }
 
-    .dashboard.selected {
+    .dashboard {
         min-height: 400px;
         align-items: center;
         padding: 0px 40px 0px 40px;
@@ -221,6 +224,7 @@
         height: max(10vmin,50px);
         font-size: max(4vmin, 25px);
         margin-top: 20px;
+        z-index: 1;
     }
   }
 
@@ -230,5 +234,6 @@
         max-width: 400px;
         height: max(10vmin,50px);
         font-size: max(3vmin, 20px);
+        z-index: 1;
     }
   }

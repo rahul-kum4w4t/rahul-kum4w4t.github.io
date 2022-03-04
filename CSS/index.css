@@ -9,7 +9,7 @@
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: red;
+    background-color: grey;
     border-radius: 5px;
 }
 
@@ -28,27 +28,24 @@ body {
     min-width: 500px;
 }
 
-.content-container {
-    background-color: var(--color1);
-    box-sizing: border-box;
-    overflow: hidden;
-}
 
-.dashboard {
-    display: none;
-}
+    
+    .dashboard {
+        display: none;
+    }
 
-.skills-container {
-    display: none;
-}
+    .skills-container {
+        display: none;
+    }
 
-.experience-container {
-    display: none;
-}
+    .experience-container {
+        display: none;
+    }
 
-.contact-info {
-    display: none;
-}
+    .contact-info {
+        display: none;
+    }
+
 
 
 /****************** Mobile devices ***************/
@@ -67,5 +64,9 @@ body {
     
     .contact-info {
         display: flex;
+    }
+
+    body {
+        height: fit-content;
     }
 }

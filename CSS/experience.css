@@ -1,113 +1,229 @@
 .experience-container.selected {
+    display: flex;
+}
+
+.experience-container {
+    position: relative;
     max-width: 100%;
     height: 100vh;
+    background: linear-gradient(-45deg, var(--color1), black, var(--color1));
     overflow: hidden;
-    position:relative;
-    box-sizing: border-box;
-    background-color: var(--color1);
-
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+    min-height: 300px;
 }
 
-.experience {
-    width: 67vw;
-    height: 67vh;
-
-    display: flex;
-    flex-direction: row;
-    box-sizing: border-box;
-
-    min-width:600px;
-    min-height:300px;
-}
-
-.experience > div:first-child {
-    background-color: black;
-    width: 3px;
-    background-color: rgba(231,76,60,0.2);
-    border-radius:2.5px;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: stretch;
+.experience-container > div:not(.cross-line) {
+    flex: 1 1 50%;
     box-sizing: border-box;
 }
 
-.experience > div:first-child > span {
-    flex-grow: 1;
-    border-radius:2.5px;
-    transition: all 1s ease-in-out;
-}
+.experience-container > div.left-top {
+    position: absolute;
 
-.experience > div:nth-child(2) {
-    flex: 1 1 auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: stretch;
-    box-sizing: border-box; 
-}
-
-.experience > div:nth-child(2) > span {
-    flex-grow: 1;
-
-    display: flex;
-    flex-direction:column;
-    justify-content: center;
-    align-items: flex-end;
-    font-family: arial, monospace;
-    font-size: max(10px, 2.3vmin);
-    color: white;   
-    box-sizing: border-box;
-    max-height: 33.33%;
-    padding: 0px 15px 0px 15px;
-
-    cursor: pointer;
-    transition: border-right 1s ease-in-out;
-}
-
-.experience > div:nth-child(2) > span:hover {
-    background-color: rgba(231,76,60,0.1);
-}
-
-.experience > div:nth-child(2) > span.selected {
-    color: var(--color2);
-    border-right: 1px solid rgba(231,76,60,0.3);
-    font-weight: bold;
-}
-
-
-.experience > div:last-child {
-    flex: 1 1 75%;
-    box-sizing: border-box;
     color: white;
-    padding: 10px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 
-    display:flex;
-    flex-direction: column;
+    display: flex;
+    opacity: 0;
+
+    box-sizing: border-box;
+
+    transition: left 0.7s linear, opacity 0.1s linear;
 }
 
-.experience > div:last-child > span.selected {
-    height: 100%;
-    border-right: 1px solid rgba(231,76,60,0.1);
+.experience-container > div.left-top.selected {
+    left: 0px;
+    opacity: 1;
 }
 
-.experience > div:last-child > span {
-    flex-grow:1;
-    height: 0px;
-    display:flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    overflow: hidden;
-    line-height: max(20px, 5vmin);
-    padding-right: 10px;
-    transition: all 1s ease-in-out; 
-    font-size: max(10px, 2.3vmin);
-    font-family: arial, monospace;
+.experience-container > div.right-bottom.selected {
+    right: 0px;
+    opacity: 1;
 }
 
-.experience > div:first-child > span.selected {
-    background-color: rgb(231,76,60);
+.experience-container > div.right-bottom {
+    position: absolute;
+
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    
+    display: flex;
+    box-sizing: border-box;
+
+    opacity: 0;
+    transition: right 0.7s linear, opacity 0.1s linear;
+}
+
+
+
+@media all and (pointer: fine){
+
+    .cross-line {
+        position: absolute;
+        bottom: 1px;
+        width: 1px;
+        background-color: rgb(30, 30, 30);
+        transform-origin: 1px bottom;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        box-sizing: border-box;
+        z-index: 1;
+    }
+
+    .cross-line > div.selected:before {
+        font-family: FontAwesome;
+        position: absolute;
+        content: "\f054\00a0";
+        display: inline-block;
+        animation: rocking 1s linear infinite alternate;
+        -webkit-animation: rocking 1s linear infinite alternate;
+        -moz-animation: rocking 1s linear infinite alternate;
+        -ms-animation: rocking 1s linear infinite alternate;
+        -o-animation: rocking 1s linear infinite alternate;
+    }
+
+    .cross-line:hover {
+        background-color: rgb(50, 50, 50);
+    }
+    
+    .cross-line > div {
+        width: fit-content;
+        white-space: nowrap;
+        height: 20px;
+        color: white;
+        font-size: max(1.5vmin, 10px);
+        font-family: monospace, Arial, Helvetica, sans-serif;
+        transition: color 0.1s linear, font-size 0.1s linear;
+        box-sizing: border-box;
+        user-select: none;
+    }
+    
+    .cross-line > div.selected {
+        font-size: max(2.5vmin, 12px);  
+        color: var(--color2);
+    }
+    
+    .cross-line > div:not(.selected):hover {
+        cursor: pointer;
+        font-size: max(2.5vmin, 12px);
+        color: var(--color2);
+    }
+
+    @keyframes rocking {
+        from{
+            transform: translate(-22px);
+        }to{
+            transform: translate(-12px);
+        }
+    }
+
+    .experience-container > div.right-bottom {
+        right: -70vw;
+        bottom: 0px;
+        width: 70vw;
+        min-height: max(50vh, 150px);
+        font-size: max(2.5vmin,13px);
+        padding: 0px 10px 10px 0px;
+
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-end;
+    }
+
+    .experience-container > div.left-top {
+        top: 0px;
+        left: -50vw;
+        width: 50vw;
+        height: max(50vh, 150px);
+        font-size: max(7vmin, 20px);
+        padding-left: 20px;
+
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+    }
+
+    .experience-container > div.right-bottom > span:nth-child(2n+1) {
+        border-top-left-radius: 2vmin;
+        border-bottom-left-radius: 2vmin;
+        padding: 5px 10px;
+        margin-bottom: 10px;
+        margin-top: 10px;
+        font-weight: bold;
+        background-color: rgb(50,50,50);
+    }
+}
+
+@media all and (hover: none) and (pointer: coarse){
+ 
+    .cross-line {
+        position: absolute;
+        top: 20px;
+        width: 90vw;
+        left: 5vw;
+
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-items: center;
+
+        box-sizing: border-box;
+        z-index: 1;
+    }
+
+    .cross-line > div {
+        color: white;
+        padding: 10px 40px;
+        font-size: max(3vmin,15px);
+        border-radius: max(1.5vmin,7px);
+        background-color: white;
+        color: black;
+    }
+
+    .cross-line > div.selected {
+        color: white;
+        background-color: var(--color2);
+    }
+
+    .experience-container > div.right-bottom {
+        right: -100vw;
+        bottom: 0px;
+        width: 100vw;
+        min-height: max(60vh, 150px);
+
+        font-size: max(3vmin, 10px);
+
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        padding: 0px 20px;
+    }
+
+    .experience-container > div.left-top {
+        top: 10vh;
+        left: -100vw;
+        width: 100vw;
+        height: max(30vh, 80px);
+
+        font-size: max(7vmin, 15px);
+        padding : 0px 20px;
+        text-align: center;
+
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .experience-container > div.right-bottom > span:nth-child(2n+1) {
+        border-radius: 3vmin;
+        padding: 10px 20px;
+        margin: 30px 0px;
+        font-weight: bold;
+        background-color: rgb(50,50,50);
+    }
+
+    .experience-container > div.right-bottom > span {
+        text-align: center;
+    }
 }
