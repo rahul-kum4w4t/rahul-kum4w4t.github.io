@@ -61,10 +61,13 @@ export default function onLoad() {
 
 
     document.querySelector(".contact-me").addEventListener("mousedown", e => {
-        document.querySelector(".side-menu-item[data-navigate=contact-info]").dispatchEvent(new Event("mousedown",{bubbles: true}));
-    });
 
-    window.addEventListener('resize', resizeDropBar);
+        if (window.matchMedia("(orientation: portrait)").matches && "ontouchstart" in document.documentElement) {
+            document.querySelector(".contact-info").scrollIntoView();
+        }else{
+            document.querySelector(".side-menu-item[data-navigate=contact-info]").dispatchEvent(new Event("mousedown",{bubbles: true}));
+        }
+    });
 
     for (let tab of document.querySelectorAll(".experience > div:nth-child(2) > span")) {
         tab.addEventListener("mousedown", event => {
@@ -133,7 +136,7 @@ export default function onLoad() {
 
     window.scrollTo(0, 0);
 
-    resizeDropBar();
+    resizeEffects();
 
     // Type writer effect
     new TypeWriterEffect(
@@ -159,12 +162,12 @@ export default function onLoad() {
     });
 }
 
-function resizeDropBar() {
-    const dropContainer = document.querySelector(".drop-container");
-    dropContainer.style.left = -2 * (dropContainer.offsetWidth / 5) + "px";
-}
 
 function resizeEffects() {
+    
+    const dropContainer = document.querySelector(".drop-container");
+    dropContainer.style.left = -2 * (dropContainer.offsetWidth / 5) + "px";
+
     const width = document.documentElement.offsetWidth;
     const height = document.documentElement.offsetHeight;
     let ratio = width / height;
