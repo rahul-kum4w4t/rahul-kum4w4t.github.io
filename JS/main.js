@@ -136,7 +136,7 @@ export default function onLoad() {
 
     window.scrollTo(0, 0);
 
-    resizeEffects();
+    resizeBar();
 
     // Type writer effect
     new TypeWriterEffect(
@@ -163,11 +163,13 @@ export default function onLoad() {
 }
 
 
-function resizeEffects() {
-    
+function resizeBar(){
     const dropContainer = document.querySelector(".drop-container");
     dropContainer.style.left = -2 * (dropContainer.offsetWidth / 5) + "px";
+}
 
+function resizeEffects() {
+    resizeBar();
     const width = document.documentElement.offsetWidth;
     const height = document.documentElement.offsetHeight;
     let ratio = width / height;
